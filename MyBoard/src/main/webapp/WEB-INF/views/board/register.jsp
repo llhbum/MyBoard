@@ -34,9 +34,11 @@
                                    <label>Writer</label>
                                    <input class="form-control" name = "writer">
                                 </div>
-									<button type="submit" class="btn btn-default">Submit Button</button>
-                                    <button type="reset" class="btn btn-default">Reset Button</button>
+									<button type="submit" class="btn btn-default">작성</button>
+                                    <button type="reset" class="btn btn-default">초기화</button>
+                                    <button class="btn btn-info"><a href="/board/list">목록</a></button>
                             </form>
+                            		
                         </div>
                         <!-- /.panel-body -->
                     </div>
