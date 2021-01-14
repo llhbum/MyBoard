@@ -3,6 +3,7 @@ package org.llhbum.mapper;
 import java.util.List;
 
 import org.llhbum.domain.BoardVO;
+import org.llhbum.domain.Criteria;
 
 public interface BoardMapper {
 	
@@ -17,4 +18,6 @@ public interface BoardMapper {
 	int delete(Long bno);
 	
 	int update(BoardVO board);
+	
+	List<BoardVO> getListWithPaging(Criteria cri);
 }

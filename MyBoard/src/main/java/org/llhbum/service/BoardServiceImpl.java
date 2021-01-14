@@ -3,6 +3,7 @@ package org.llhbum.service;
 import java.util.List;
 
 import org.llhbum.domain.BoardVO;
+import org.llhbum.domain.Criteria;
 import org.llhbum.mapper.BoardMapper;
 import org.springframework.stereotype.Service;
 
@@ -50,5 +51,10 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getList() {
 		// TODO Auto-generated method stub
 		return mapper.getList();
+	}
+
+	@Override
+	public List<BoardVO> getList(Criteria cri) {
+		return mapper.getListWithPaging(cri);
 	}
 }

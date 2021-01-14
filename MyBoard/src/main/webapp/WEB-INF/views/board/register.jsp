@@ -35,10 +35,24 @@
                                    <input class="form-control" name = "writer">
                                 </div>
 									<button type="submit" class="btn btn-default">작성</button>
-                                    <button type="reset" class="btn btn-default">초기화</button>
-                                    <button class="btn btn-info"><a href="/board/list">목록</a></button>
+                            		<button type = "button" class="btn btn-info listbtn"><a href='/board/list'></a>목록</button>
+                            		<button type="reset" class="btn btn-danger">초기화</button>
+                            </form>
+                           
+                            <form id="actionForm" action="/board/list" method="get">
+                            	<input type ="hidden" name="pageNum" value="${cri.pageNum }">
+							   	<input type ="hidden" name="amount" value="${cri.amount }">
                             </form>
                             		
+                            		
+							<script>
+	                        	var actionForm = $("#actionForm");
+	                        	
+	                        	$(".listbtn").click(function(e){
+	                        		e.preventDefault();
+	                        		actionForm.submit();
+	                        	});
+                        	</script>
                         </div>
                         <!-- /.panel-body -->
                     </div>

@@ -37,8 +37,31 @@
                                 <label>Writer</label>
                                 <input class="form-control" name = "writer" value='<c:out value ="${board.writer }"/>'>
                              </div>
-								<button  class="btn btn-info"><a href='/board/list'>목록</a></button>
-								<button  class = "btn btn-danger"><a href='/board/modify?bno=<c:out value="${board.bno }"/>'>수정/삭제</a></button>
+                             
+                            <form id="actionForm" action="/board/list" method="get">
+                            	<input type ="hidden" name="pageNum" value="${cri.pageNum }">
+							   	<input type ="hidden" name="amount" value="${cri.amount }">
+					   			<input type ="hidden" name="bno" value="${board.bno }">
+                            </form>
+                             
+							<button  type = 'button' class="btn btn-info listbtn"><a href='/board/list'></a>목록</button>
+							<button  type = 'button'class = "btn btn-danger modbtn"><a href='/board/modify?bno=<c:out value = "${board.bno }"/>'></a>수정/삭제</button>
+                        
+                        	<script>
+                        	var actionForm = $("#actionForm");
+                        	
+                        	$(".listbtn").click(function(e){
+                        		e.preventDefault();
+                        		actionForm.find("input[name = 'bno']").remove();
+                        		actionForm.submit();
+                        	});
+                        	
+                        	$(".modbtn").click(function(e){
+                        		e.preventDefault();
+                        		actionForm.attr("action", "/board/modify");
+                        		actionForm.submit();
+                        	});
+                        	</script>
                         </div>
                         <!-- /.panel-body -->
                     </div>

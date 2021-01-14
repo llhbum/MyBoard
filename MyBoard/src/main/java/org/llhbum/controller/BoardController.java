@@ -1,10 +1,13 @@
 package org.llhbum.controller;
 
 import org.llhbum.domain.BoardVO;
+import org.llhbum.domain.Criteria;
+import org.llhbum.domain.pageDTO;
 import org.llhbum.service.BoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,10 +25,20 @@ public class BoardController {
 	
 	private BoardService service;
 	
+//	@GetMapping("/list")
+//	public void list(Model model) {
+//		log.info("list..............................");
+//		model.addAttribute("list", service.getList());
+//	}
+	
 	@GetMapping("/list")
-	public void list(Model model) {
+	public void list(Model model, Criteria cri) {
+		
+		log.info("cri...........................................");
+		log.info(cri);
 		log.info("list..............................");
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageMaker", new pageDTO(cri, 123));
 	}
 	 
 	@PostMapping("/register")
@@ -36,20 +49,18 @@ public class BoardController {
 		
 		rttr.addFlashAttribute("result", bno);
 		
-		
 		return "redirect:/board/list";
 	}
 	
 	@GetMapping("/register")
-	public void registerGET() {
+	public void registerGET(@ModelAttribute("cri") Criteria cri , Model model) { 
 		
 	}
 	
 	@GetMapping({"/get", "/modify"})
-	public void get(@RequestParam("bno")Long bno, Model model) {
+	public void get(@RequestParam("bno")Long bno, @ModelAttribute("cri") Criteria cri, Model model) {
 		model.addAttribute("board",service.get(bno));
 	}
-	
 	
 	
 	@PostMapping("/modify")

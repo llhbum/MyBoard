@@ -39,10 +39,27 @@
 	                                <label>Writer</label>
 	                                <input class="form-control" name = "writer" value='<c:out value ="${board.writer }"/>'>
 	                             </div>
-									<button  class="btn btn-default" data-oper="modify">수정</button>
-	                          		<button  class="btn btn-danger" data-oper="remove">삭제</button>
-	                          		<button  class="btn btn-info" data-oper="list">목록</button>
+									<button type="button" class="btn btn-default "data-oper="modify">수정</button>
+									<button type="button" class="btn btn-info listbtn"><a href='/board/list'></a>목록</button>
+	                          		<button type="button" class="btn btn-danger " data-oper="remove">삭제</button>
 	                        </form>
+	                        
+                          	<form id="actionForm" action="/board/list" method="get">
+                            	<input type ="hidden" name="pageNum" value="${cri.pageNum }">
+							   	<input type ="hidden" name="amount" value="${cri.amount }">
+							   	<input type ="hidden" name="bno" value="${board.bno }">
+                            </form>
+                            
+                             <script>
+	                        	var actionForm = $("#actionForm");
+	                        	
+	                        	$(".listbtn").click(function(e){
+	                        		e.preventDefault();
+	                        		actionForm.submit();
+	                        	});
+	                        	
+                        	</script>
+                             
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -64,9 +81,7 @@
 		
 		console.log(operation);
 		
-		if(operation === 'list'){
-			self.location = "/board/list";
-		}else if(operation === 'remove'){
+		if(operation === 'remove'){
 			formObj.attr("action","/board/remove")
 			.attr("method","post");
 			formObj.submit();

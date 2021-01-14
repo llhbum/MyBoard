@@ -3,6 +3,7 @@ package org.llhbum.service;
 import java.util.List;
 
 import org.llhbum.domain.BoardVO;
+import org.llhbum.domain.Criteria;
 import org.llhbum.mapper.BoardMapper;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,7 @@ public interface BoardService {
 	int remove(Long bno);
 	
 	List<BoardVO> getList();
+	
+	List<BoardVO> getList(Criteria cri);
 	
 }

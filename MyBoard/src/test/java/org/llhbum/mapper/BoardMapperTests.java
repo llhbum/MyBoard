@@ -1,8 +1,12 @@
 package org.llhbum.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.llhbum.domain.BoardVO;
+import org.llhbum.domain.Criteria;
+import org.llhbum.domain.pageDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -62,6 +66,25 @@ public class BoardMapperTests {
 		log.info("count : " + boardMapper.update(vo));
 	}
 	
+	@Test
+	public void testPaging() {
+		//1페이지에 10개
+		Criteria cri = new Criteria();
+		
+		List<BoardVO> list = boardMapper.getListWithPaging(cri);
+		
+		list.forEach(b -> log.info(b));
+	}
 
+	@Test
+	public void testPageDTO() {
+		Criteria cri = new Criteria();
+		cri.setPageNum(25);
+		
+		pageDTO pageDTO = new pageDTO(cri, 251);
+		
+		log.info(pageDTO);
+		
+	}
 	
 }
