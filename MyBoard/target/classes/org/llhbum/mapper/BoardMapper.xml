@@ -4,6 +4,23 @@
 
 <!-- 3. BoardMapper.java에 맞게 xml 작성 -->
 <mapper namespace="org.llhbum.mapper.BoardMapper">
+
+<sql id ="criteria">
+	<trim prefix = "(" suffix = ") AND">
+		<foreach collection="typeArr" item="type" separator="OR">
+			<if test ="type == 'T'.toString()">
+				title like '%' || #{keyword} || '%'
+			</if>	
+			<if test ="type == 'C'.toString()">
+				content like '%' || #{keyword} || '%'
+			</if>
+			<if test ="type == 'W'.toString()">
+				writer like '%' || #{keyword} || '%'
+			</if>			
+		</foreach>
+	</trim>
+</sql>
+
 	<select id="getList" resultType="org.llhbum.domain.BoardVO">
 		select * from tbl_board ORDER by bno desc
 	</select>
@@ -38,6 +55,7 @@
 		where bno = #{bno}
 	</update>
 	
+	
 	<select id="getListWithPaging" resultType="org.llhbum.domain.BoardVO">
 		<![CDATA[
 			select *
@@ -47,15 +65,23 @@
 					rownum rn, bno, title,writer,regdate,updatedate
 				from 
 					tbl_board 
-				where bno > 0 and rownum > 0 and rownum <= (#{pageNum} * #{amount})
+				where 
+		]]>
+			<include refid ="criteria"></include>
+		<![CDATA[
+					bno > 0 and rownum > 0 and rownum <= (#{pageNum} * #{amount})
+				
 				)
 			where rn > (#{pageNum}-1) * #{amount}
 		]]>
 	</select>
 	
 	<select id="getTotalCount" resultType="int">
-		select count(bno) from tbl_board
+		select count(bno) from tbl_board where
+		<include refid ="criteria"></include>
+		 bno > 0
 	</select>
+	
 	
 	<select id="searchTest" resultType="org.llhbum.domain.BoardVO">
 	<![CDATA[
@@ -63,12 +89,19 @@
 		where
 	]]>
 	
-	<foreach collection="map" index="key" item='val'>
-		<if test="key == 'T'.toString()">
-			title like #{val}
-		</if>
-		#{key}, #{val}
-	</foreach>
+	<trim suffix="and">
+		<foreach collection="map" index="key" item='val' separator="OR" open="(" close=")">
+			<if test="key == 'T'.toString()">
+				title like #{val}
+			</if>
+			<if test="key == 'C'.toString()">
+				title like #{val}
+			</if>
+			<if test="key == 'W'.toString()">
+				title like #{val}
+			</if>
+		</foreach>
+	</trim>
 	<![CDATA[
 		rownum < 10
 	]]>

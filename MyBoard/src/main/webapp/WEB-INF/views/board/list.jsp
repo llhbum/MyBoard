@@ -23,11 +23,11 @@
                             <table width="100%" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>BNO</th>
-                                        <th>Title</th>
-                                        <th>Writer</th>
-                                        <th>RegDate</th>
-                                        <th>UpdataDate</th>
+                                        <th width=10%>번호</th>
+                                        <th width=30%>제목</th>
+                                        <th width=20%>작성자</th>
+                                        <th width=20%>등록일</th>
+                                        <th width=20%>수정일</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -36,12 +36,30 @@
                                         <td>${board.bno }</td>
                                         <td><a class ='move'  href="<c:out value="${board.bno }"/>"><c:out value="${board.title }"/> </a></td>
                                         <td>${board.writer }</td>
-                                 		<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ board.regdate }"/></td>
-										<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ board.updateDate }"/></td>
+                                 		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${ board.regdate }"/></td>
+										<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${ board.updateDate }"/></td>
                                     </tr>
                                  </c:forEach>   
                                 </tbody>
                             </table>
+                            
+                            <form id = 'searchForm' action ="/board/list" method="get">
+                            	<select name="type">
+                            		<option value="" ${pageMaker.cri.type == null ? "selected ":"" }>---</option>
+                            		<option value="T"  ${pageMaker.cri.type eq  'T'?"selected ":"" }>제목</option>
+                            		<option value="C"  ${pageMaker.cri.type eq  'C'?"selected ":"" }>내용</option>
+                            		<option value="W"  ${pageMaker.cri.type eq  'W'?"selected ":"" }>작성자</option>
+                            		<option value="TC"  ${pageMaker.cri.type eq 'TC'? "selected ":"" }>제목 + 내용</option>
+                            		<option value="TCW"  ${pageMaker.cri.type eq 'TCW'?"selected ":"" }>제목 + 내용 + 작성자</option>
+                            	</select>
+ 								<input type="text" name="keyword" value='${pageMaker.cri.keyword }'>
+ 								<input type='hidden' name='pageNum' value='${pageMaker.cri.pageNum }'>	
+ 								<input type='hidden' name='amount' value='${pageMaker.cri.amount }'>	  
+ 								<button class ='btn btn-default'>검색</button>                         
+                            
+                            </form>
+                            
+                            
                             <!-- /.table-responsive -->
                             <div class='pull-right'>
                             	<ul class="pagination">
@@ -67,9 +85,12 @@
 								    </c:if>
                             	</ul>
                             </div>
+                            
                               <form id="actionForm" action="/board/list" method="get">
                             	<input type ="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
 							   	<input type ="hidden" name="amount" value="${pageMaker.cri.amount }">
+							   	<input type ="hidden" name="type" value="${pageMaker.cri.type }">
+							   	<input type ="hidden" name="keyword" value="${pageMaker.cri.keyword }">
                             </form>
                         </div>
                         <!-- /.panel-body -->
@@ -142,6 +163,7 @@
 		 });
 		 
 		$(".move").on("click" ,function(e){
+			
 			e.preventDefault();
 			
 			var targetBno = $(this).attr("href");
@@ -155,6 +177,14 @@
 		$("#regBtn").on("click" ,function(e){
 			e.preventDefault();
 			actionForm.attr("action", "/board/register").submit();
+		});
+		
+		var searchForm = $('#searchForm');
+		
+		$('#searchForm button' ).on("click",function(e){
+			e.preventDefault();
+			searchForm.find("input[name='pageNum']").val(1);
+			searchForm.submit();
 		});
 	});
 
