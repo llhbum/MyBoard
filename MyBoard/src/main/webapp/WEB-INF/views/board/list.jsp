@@ -6,7 +6,7 @@
 <%@include file="../includes/header.jsp" %>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Tables</h1>
+                    <h1 class="page-header">게시판</h1> 
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -15,8 +15,8 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            DataTables Advanced Tables
-                            <button id ='regBtn' type ="button" class="btn btn-xs pull-right"><a href='/board/register'></a>새로운 게시물 작성</button>
+                        　
+                            <button id ='regBtn' type ="button" class="btn btn-xs pull-right btn-info"><a href='/board/register'></a>새로운 게시물 작성</button>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -43,9 +43,14 @@
                                 </tbody>
                             </table>
                             <!-- /.table-responsive -->
-                            
                             <div class='pull-right'>
                             	<ul class="pagination">
+		                            	<li class="start-page">
+									      <a class="start-page a" href="/board/list" aria-label="Previous">
+									        <span aria-hidden="true">&laquo;</span>
+									        <span class="sr-only">Previous</span>
+									      </a>
+									    </li>
                             			<c:if test="${pageMaker.prev}">
                             	 		<li class="page-item">
 									      	<a class="page-link" href="${pageMaker.startPage - 1 }" tabindex="-1">Previous</a>

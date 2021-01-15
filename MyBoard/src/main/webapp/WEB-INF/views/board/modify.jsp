@@ -20,10 +20,14 @@
                         <!-- /.panel-heading -->
                        
                         <div class="panel-body">
+                        
 	                         <form>
+	                         
+	                         	<input type='hidden' name ='pageNum' value ='<c:out value="${cri.pageNum }"/>'>
+	                         	<input type='hidden' name ='amount' value ='<c:out value="${cri.amount }"/>'>
 	                        	<div class="form-group">
 	                                <label>BNO</label>
-	                                <input class="form-control" name = "bno" readonly= "readonly" value='<c:out value ="${board.bno }"/>'>
+	                                <input class="form-control" name = "bno"  readonly= "readonly" value='<c:out value ="${board.bno }"/>'>
 	                             </div>
 	                         	<div class="form-group">
 	                                <label>Title</label>
@@ -37,29 +41,12 @@
 	                             
 	                            	<div class="form-group">
 	                                <label>Writer</label>
-	                                <input class="form-control" name = "writer" value='<c:out value ="${board.writer }"/>'>
+	                                <input class="form-control" name = "writer"  readonly= "readonly" value='<c:out value ="${board.writer }"/>'>
 	                             </div>
 									<button type="button" class="btn btn-default "data-oper="modify">수정</button>
-									<button type="button" class="btn btn-info listbtn"><a href='/board/list'></a>목록</button>
+									<button type="button" class="btn btn-info" data-oper="list">목록</button>
 	                          		<button type="button" class="btn btn-danger " data-oper="remove">삭제</button>
 	                        </form>
-	                        
-                          	<form id="actionForm" action="/board/list" method="get">
-                            	<input type ="hidden" name="pageNum" value="${cri.pageNum }">
-							   	<input type ="hidden" name="amount" value="${cri.amount }">
-							   	<input type ="hidden" name="bno" value="${board.bno }">
-                            </form>
-                            
-                             <script>
-	                        	var actionForm = $("#actionForm");
-	                        	
-	                        	$(".listbtn").click(function(e){
-	                        		e.preventDefault();
-	                        		actionForm.submit();
-	                        	});
-	                        	
-                        	</script>
-                             
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -80,8 +67,17 @@
 		var operation = $(this).data("oper")
 		
 		console.log(operation);
-		
-		if(operation === 'remove'){
+		if(operation ==='list'){
+			formObj.attr("action", "/board/list").attr("method","get");
+			var pageNumTag=$("input[name='pageNum']").clone();
+			var amountTag=$("input[name='amount']").clone();
+			
+			formObj.empty();
+			formObj.append(pageNumTag);
+			formObj.append(amountTag);
+			formObj.submit();
+			
+		}else if(operation === 'remove'){
 			formObj.attr("action","/board/remove")
 			.attr("method","post");
 			formObj.submit();

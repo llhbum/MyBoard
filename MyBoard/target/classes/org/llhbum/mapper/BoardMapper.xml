@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+<!-- 3. BoardMapper.java에 맞게 xml 작성 -->
 <mapper namespace="org.llhbum.mapper.BoardMapper">
 	<select id="getList" resultType="org.llhbum.domain.BoardVO">
 		select * from tbl_board ORDER by bno desc
@@ -50,6 +51,27 @@
 				)
 			where rn > (#{pageNum}-1) * #{amount}
 		]]>
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(bno) from tbl_board
+	</select>
+	
+	<select id="searchTest" resultType="org.llhbum.domain.BoardVO">
+	<![CDATA[
+		select * from tbl_board
+		where
+	]]>
+	
+	<foreach collection="map" index="key" item='val'>
+		<if test="key == 'T'.toString()">
+			title like #{val}
+		</if>
+		#{key}, #{val}
+	</foreach>
+	<![CDATA[
+		rownum < 10
+	]]>
 	</select>
 	
 </mapper>

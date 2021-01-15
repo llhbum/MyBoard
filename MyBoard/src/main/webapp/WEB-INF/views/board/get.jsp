@@ -30,12 +30,12 @@
                              
 							<div class="form-group">
                                 <label>Content</label>
-                                <textarea class="form-control" rows="5" cols="50" name="content"> <c:out value ="${board.content }"/> </textarea>
+                                <textarea class="form-control" rows="5" cols="50" name="content"  readonly= "readonly"> <c:out value ="${board.content }"/> </textarea>
                              </div>
                              
                             	<div class="form-group">
                                 <label>Writer</label>
-                                <input class="form-control" name = "writer" value='<c:out value ="${board.writer }"/>'>
+                                <input class="form-control" name = "writer" readonly= "readonly" value='<c:out value ="${board.writer }"/>'>
                              </div>
                              
                             <form id="actionForm" action="/board/list" method="get">

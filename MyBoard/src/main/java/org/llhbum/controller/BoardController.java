@@ -17,6 +17,8 @@ import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
+// 6. Controller 분기 및 service와 연동
+// 7. JSP 작성
 @Controller
 @Log4j
 @RequestMapping("/board/*")
@@ -34,11 +36,8 @@ public class BoardController {
 	@GetMapping("/list")
 	public void list(Model model, Criteria cri) {
 		
-		log.info("cri...........................................");
-		log.info(cri);
-		log.info("list..............................");
 		model.addAttribute("list", service.getList(cri));
-		model.addAttribute("pageMaker", new pageDTO(cri, 123));
+		model.addAttribute("pageMaker", new pageDTO(cri, service.getTotal(cri)));
 	}
 	 
 	@PostMapping("/register")
@@ -64,23 +63,29 @@ public class BoardController {
 	
 	
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(BoardVO board, RedirectAttributes rttr, Criteria cri ) {
 		int count = service.modify(board);
 		
 		if(count == 1) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		
 		return "redirect:/board/list";
 	}
 	
 	@PostMapping("/remove")
-	public String remove(@RequestParam("bno")Long bno, RedirectAttributes rttr) {
+	public String remove(@RequestParam("bno")Long bno, RedirectAttributes rttr , Criteria cri) {
 		int count = service.remove(bno);
 		
 		if(count == 1) {
 			rttr.addFlashAttribute("result", "success");
 		}
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
 		
 		return "redirect:/board/list";
 	}

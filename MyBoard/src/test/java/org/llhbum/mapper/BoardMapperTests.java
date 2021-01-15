@@ -1,6 +1,8 @@
 package org.llhbum.mapper;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import lombok.extern.log4j.Log4j;
+
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -85,6 +89,20 @@ public class BoardMapperTests {
 		
 		log.info(pageDTO);
 		
+	}
+	
+	@Test
+	public void testSeach() {
+		Map<String, String> map = new HashMap<>();
+		map.put("T", "TTT");
+		map.put("C", "CCC");
+		
+		Map<String, Map<String, String>> outer = new HashMap<>();
+		outer.put("map",map);
+		
+		List<BoardVO> list = boardMapper.searchTest(outer);
+		
+		log.info(list);
 	}
 	
 }

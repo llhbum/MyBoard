@@ -7,11 +7,11 @@ import org.llhbum.domain.Criteria;
 import org.llhbum.mapper.BoardMapper;
 import org.springframework.stereotype.Service;
 
-
+// 4. service 구축
 // 서비스는 비지니스 용어를 사용해야함
 public interface BoardService {
 	
-	Long register (BoardVO board);
+	Long register(BoardVO board);
 	
 	BoardVO get(Long bno);
 	
@@ -22,5 +22,7 @@ public interface BoardService {
 	List<BoardVO> getList();
 	
 	List<BoardVO> getList(Criteria cri);
+	
+	int getTotal(Criteria cri);
 	
 }

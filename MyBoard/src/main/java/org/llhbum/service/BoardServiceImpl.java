@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j;
 
+// 5. service에 맞는 Impl 작성
+
 @Service
 @Log4j
 @RequiredArgsConstructor
@@ -56,5 +58,10 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<BoardVO> getList(Criteria cri) {
 		return mapper.getListWithPaging(cri);
+	}
+
+	@Override
+	public int getTotal(Criteria cri) {
+		return mapper.getTotalCount(cri);
 	}
 }
