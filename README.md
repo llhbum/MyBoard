@@ -10,12 +10,12 @@
 > 추후작성
 
 <h3 align="center"><strong>목차</strong></h3>
-
-1. 게시판 CRUD / 게시글 검색처리
-2. 게시글 댓글
-3. 파일 업로드
-4. 로그인 / Security
-
+```
+        1. 게시판 CRUD / 게시글 검색처리
+        2. 게시글 댓글
+        3. 파일 업로드
+        4. 로그인 / Security
+```
 ***
 
 # How To Use
