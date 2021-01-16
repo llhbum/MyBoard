@@ -7,8 +7,7 @@
 
 <h3 align="center"><strong>기술 및 Version</strong></h3>
 
-> 추후작성.
-추후작성
+> 추후작성
 
 <h3 align="center"><strong>목차</strong></h3>
 
