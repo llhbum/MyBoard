@@ -6,6 +6,8 @@ import org.llhbum.domain.BoardVO;
 import org.llhbum.domain.Criteria;
 import org.llhbum.mapper.BoardMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
@@ -30,9 +32,11 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	public BoardVO get(Long bno) {
 		// TODO Auto-generated method stub
 		
+		mapper.boardHit(bno);
 		return mapper.read(bno);
 	}
 

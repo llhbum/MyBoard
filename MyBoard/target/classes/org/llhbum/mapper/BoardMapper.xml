@@ -55,6 +55,12 @@
 		where bno = #{bno}
 	</update>
 	
+	<update id="boardHit" parameterType="Long">
+		update tbl_board set 
+		HIT = HIT + 1
+		where bno = #{bno}
+	</update>
+	
 	
 	<select id="getListWithPaging" resultType="org.llhbum.domain.BoardVO">
 		<![CDATA[
@@ -62,7 +68,7 @@
 			from
 				(
 				select /*+ INDEX_DESC(tbl_board pk_board) */ 
-					rownum rn, bno, title,writer,regdate,updatedate
+					rownum rn, bno, title,writer,regdate,updatedate,hit
 				from 
 					tbl_board 
 				where 
