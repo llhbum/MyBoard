@@ -69,7 +69,6 @@ public class BoardController {
 		if(count == 1) {
 			rttr.addFlashAttribute("result", "success");
 		}
-		
 		rttr.addAttribute("pageNum", cri.getPageNum());
 		rttr.addAttribute("amount", cri.getAmount());
 		rttr.addAttribute("type", cri.getType());

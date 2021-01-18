@@ -24,10 +24,11 @@
                                 <thead>
                                     <tr>
                                         <th width=10%>번호</th>
-                                        <th width=30%>제목</th>
+                                        <th width=25%>제목</th>
                                         <th width=20%>작성자</th>
-                                        <th width=20%>등록일</th>
-                                        <th width=20%>수정일</th>
+                                        <th width=18%>등록일</th>
+                                        <th width=18%>수정일</th>
+                                        <th width=8%>조회수</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,6 +39,7 @@
                                         <td>${board.writer }</td>
                                  		<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${ board.regdate }"/></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${ board.updateDate }"/></td>
+										<td>${board.hit }</td>
                                     </tr>
                                  </c:forEach>   
                                 </tbody>
