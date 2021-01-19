@@ -25,7 +25,14 @@
 
 <h3 align="center"><strong> 게시판CRUD </strong></h3>
 
-### 1. Read
+> ### 1. Read
+<img width="899" alt="list" src="https://user-images.githubusercontent.com/47100164/105016772-63b73280-5a86-11eb-8e1f-ff74cf081826.PNG">
+
+>    > 1. 번호, 제목, 작성자, 등록일, 수정일, 조회수를 보여주
+>    > 2. board/register -> 게시물 작성으로 이동
+>    > 3. pagination으로 페이징 처리
+>    > 4. Title, content, writer을 이용해서 게시물 검색
+
 ### 2. Create
 ### 3. Update
 ### 4. Delete
