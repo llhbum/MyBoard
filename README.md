@@ -9,10 +9,7 @@
 
 
 <h3 align="center"><strong>목차</strong></h3>
-> 1. 게시판CRUD 
-> 2. 게시글 댓글
-> 3. 파일 업로드
-> 4. 로그인 sercurity
+
 
 <h3 align="center"><strong>개발목적</strong></h3>
 >
@@ -27,7 +24,13 @@
 # How To Use
 
 <h3 align="center"><strong> 게시판CRUD </strong></h3>
-> 
+### 1. Read
+### 2. Create
+### 3. Update
+### 4. Delete
+### 5. Pagination
+### 6. 검색
+### 7. 조회수
 
 <h3 align="center"><strong> 게시글 댓글 </strong></h3>
 >
