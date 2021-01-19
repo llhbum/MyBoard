@@ -1,4 +1,13 @@
-# 미완성
+# 진행상황
+1. 게시판CRUD V
+2. 게시글 댓글
+3. 파일 업로드
+4. 로그인 sercurity
+
+### ERD
+<img width="609" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/105014248-8ac03500-5a83-11eb-957b-298fbcda603f.PNG">
+
+
 <h3 align="center"><strong>목차</strong></h3>
 > 
 
@@ -15,7 +24,7 @@
 # How To Use
 
 <h3 align="center"><strong> 게시판CRUD </strong></h3>
->
+> 
 
 <h3 align="center"><strong> 게시글 댓글 </strong></h3>
 >
