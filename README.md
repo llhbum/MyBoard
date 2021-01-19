@@ -4,12 +4,19 @@
 3. 파일 업로드
 4. 로그인 sercurity
 
-### ERD
-<img width="609" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/105014248-8ac03500-5a83-11eb-957b-298fbcda603f.PNG">
-
-
 <h3 align="center"><strong>목차</strong></h3>
 
+> 1. 게시판CRUD 
+>    > 1) List
+>    > 2) Create
+>    > 3) Read
+>    > 4) Update / Delete
+>    > 5) Pagination
+>    > 6) 검색
+>    > 7) 조회수
+> 2. 게시글 댓글
+> 3. 파일 업로드
+> 4. 로그인 sercurity
 
 <h3 align="center"><strong>개발목적</strong></h3>
 >
@@ -18,6 +25,8 @@
 <h3 align="center"><strong>기술 및 Version</strong></h3>
 >
 
+<h3 align="center"><strong>ERD</strong></h3>
+<img width="609" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/105014248-8ac03500-5a83-11eb-957b-298fbcda603f.PNG">
 
 ***
 
