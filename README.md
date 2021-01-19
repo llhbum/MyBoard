@@ -25,13 +25,13 @@
 
 <h3 align="center"><strong> 게시판CRUD </strong></h3>
 
-### Read
-### Create
-### Update
-### Delete
-### Pagination
-### 검색
-### 조회수
+### 1. Read
+### 2. Create
+### 3. Update
+### 4. Delete
+### 5. Pagination
+### 6. 검색
+### 7. 조회수
 
 <h3 align="center"><strong> 게시글 댓글 </strong></h3>
 >
