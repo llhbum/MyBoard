@@ -1,9 +1,11 @@
 package org.llhbum.mapper;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.llhbum.domain.Criteria;
 import org.llhbum.domain.ReplyVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -56,6 +58,13 @@ public class ReplyMapperTests {
 		int cnt = mapper.update(vo);
 		
 		log.info(cnt);
+	}
+	
+	@Test
+	public void testList() {
+		Criteria cri = new Criteria();
+		List<ReplyVO> reply = mapper.getListwithPaging(cri, 3670092L);
+		reply.forEach(replies -> log.info(reply));
 	}
 	
 	@Test
