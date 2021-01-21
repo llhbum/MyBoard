@@ -21,7 +21,7 @@ public class ReplyMapperTests {
 	@Autowired
 	private ReplyMapper mapper;
 	
-
+ 
 	
 	@Test
 	public void testCreate() {
