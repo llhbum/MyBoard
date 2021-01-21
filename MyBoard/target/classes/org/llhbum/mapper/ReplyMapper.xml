@@ -28,4 +28,4 @@
 		order by rno asc
 	</select>
 	
-</mapper>
+</mapper> 
