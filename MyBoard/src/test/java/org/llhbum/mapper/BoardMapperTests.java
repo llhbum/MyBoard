@@ -94,8 +94,9 @@ public class BoardMapperTests {
 	@Test
 	public void testSeach() {
 		Map<String, String> map = new HashMap<>();
-		map.put("T", "TTT");
-		map.put("C", "CCC");
+//		map.put("T", "TTTT");
+//		map.put("C", "CCCC");
+//		map.put("W", "WWWW");
 		
 		Map<String, Map<String, String>> outer = new HashMap<>();
 		outer.put("map",map);
@@ -104,5 +105,18 @@ public class BoardMapperTests {
 		
 		log.info(list);
 	}
+	
+	@Test
+	public void testSearchPaging() {
+		//1페이지에 10개
+		Criteria cri = new Criteria();
+		cri.setType("");
+		cri.setKeyword("");
+		
+		
+		List<BoardVO> list = boardMapper.getListWithPaging(cri);
+		
+	}
+		
 	
 }

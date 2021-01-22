@@ -36,4 +36,7 @@ public interface BoardMapper {
 	
 	// 검색을 위한 searchTest
 	List<BoardVO> searchTest(Map<String, Map<String, String>> map);
+	
+	// board의 조회수 
+	int boardHit(Long bno);
 }

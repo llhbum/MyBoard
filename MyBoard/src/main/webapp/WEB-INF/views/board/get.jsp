@@ -33,15 +33,22 @@
                                 <textarea class="form-control" rows="5" cols="50" name="content"  readonly= "readonly"> <c:out value ="${board.content }"/> </textarea>
                              </div>
                              
-                            	<div class="form-group">
+                           	<div class="form-group">
                                 <label>Writer</label>
                                 <input class="form-control" name = "writer" readonly= "readonly" value='<c:out value ="${board.writer }"/>'>
+                             </div>
+                               
+                           	 <div class="form-group">
+                                <label>조회수</label>
+                                <input class="form-control" name = "hit" readonly= "readonly" value='<c:out value ="${board.hit }"/>'>
                              </div>
                              
                             <form id="actionForm" action="/board/list" method="get">
                             	<input type ="hidden" name="pageNum" value="${cri.pageNum }">
 							   	<input type ="hidden" name="amount" value="${cri.amount }">
-					   			<input type ="hidden" name="bno" value="${board.bno }">
+							   	<input type ="hidden" name="bno" value="${board.bno }">
+							   	<input type ="hidden" name="type" value="${cri.type }">
+							   	<input type ="hidden" name="keyword" value="${cri.keyword }">
                             </form>
                              
 							<button  type = 'button' class="btn btn-info listbtn"><a href='/board/list'></a>목록</button>
