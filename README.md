@@ -36,7 +36,7 @@
 >
 
 <h3 align="center"><strong>ERD</strong></h3>
-<img width="609" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/105014248-8ac03500-5a83-11eb-957b-298fbcda603f.PNG">
+<img width="602" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/105502613-f49d4080-5d08-11eb-8177-581195109361.PNG">
 
 ***
 
