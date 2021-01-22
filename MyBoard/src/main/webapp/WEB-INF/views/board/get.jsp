@@ -53,7 +53,14 @@
                              
 							<button  type = 'button' class="btn btn-info listbtn"><a href='/board/list'></a>목록</button>
 							<button  type = 'button'class = "btn btn-danger modbtn"><a href='/board/modify?bno=<c:out value = "${board.bno }"/>'></a>수정/삭제</button>
-                        
+                        	
+                        	<script type="text/javascript" src ="/resources/js/reply.js"></script>
+                        	<script>
+								$(document).ready(function(){
+									console.log(replyService);
+								});                        		
+                        	</script> 
+                        	
                         	<script>
                         	var actionForm = $("#actionForm");
                         	
