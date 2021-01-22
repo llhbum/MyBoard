@@ -61,7 +61,7 @@
                         		actionForm.attr("action", "/board/modify");
                         		actionForm.submit();
                         	});
-                        	</script>
+                        	</script> 
                         </div>
                         <!-- /.panel-body -->
                     </div>
