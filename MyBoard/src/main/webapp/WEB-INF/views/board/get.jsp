@@ -55,9 +55,31 @@
 							<button  type = 'button'class = "btn btn-danger modbtn"><a href='/board/modify?bno=<c:out value = "${board.bno }"/>'></a>수정/삭제</button>
                         	
                         	<script type="text/javascript" src ="/resources/js/reply.js"></script>
+                        	
                         	<script>
 								$(document).ready(function(){
-									console.log(replyService);
+								
+									var bnoValue = '<c:out value ="${board.bno}"/>';
+									var replyUL = $(".chat");
+									
+									showList(1);
+									
+									function showList(page){
+										replyService.getList({bno:bnoValue, page:1}, function(list){
+											var str ="";
+											if(list == null || list.length == 0){
+												replyUL.html("");
+												return;
+											}
+											for(var i = 0, len = list.length || 0; i < len; i++){
+												str += "<li class='left clearfix' data-rno='"+list[i].rno+"'>";
+												str += "<div><div class='header'><strong class ='primary-font'>"+list[i].replyer+"</strong>";
+												str += "<small class ='pull-right text-muted'>"+replyService.displayTime(list[i].replyDate) + "</small></div>";
+												str += "<p>" + list[i].reply + "</p></div></li>";
+											}
+											replyUL.html(str);
+										});
+									}
 								});                        		
                         	</script> 
                         	
@@ -84,17 +106,57 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-        <!--     
-<script>
-	$(document).ready(function(){
-		$("#delBtn").click(function(){
-			self.location = "/board/modify"; 
-		 });
+            
+            <!-- 댓글 -->
+            <div class ="row">
+            	<div class ="col-lg-12">
+            		<div calss = "panel panel-default">
+            			<div class = "panel-heading">
+            				<i class =fa fa-comments fa-fw"></i>댓글
+            			</div>
+            			
+            			<div class ="panel-body">
+            				<ul class ="chat">
+            					<li class = "left clearfix" data-rno ='12'>
+            					<div>
+            						<div class = "header">
+            							<strong class="primary-font">user00</strong>
+            							<small class ="pull-right text-muted">2018-01-01 13:13</small>
+            						</div>	
+            						<p>Good job!</p>
+            					</div>
+            				</ul>
+            			</div>
+            			
+            		</div>
+            	</div>
+            </div>
+            
 		
-	})
+			<script>
+			/* 
+				var bnoValue = '<c:out value ="${board.bno}"/>';
+				
+				replyService.getList({bno:bnoValue, page:1}, function(list){
+					for(var i = 0, len = list.length || 0; i < len; i++){
+						console.log(list[i]);
+					}
+				});
+				
+				replyService.update({
+					rno : 9,
+					bno : bnoValue,
+					reply : "Modified Reply...."
+				},function(result){
+					alert("수정 완료");
+				});
+				
+				replyService.get(10, function(data){
+					console.log(data);
+				});
+			*/
+			</script>     
 
-</script>     
- -->  
           
   
   <%@include file="../includes/footer.jsp" %>
