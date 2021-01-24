@@ -3,6 +3,7 @@ package org.llhbum.service;
 import java.util.List;
 
 import org.llhbum.domain.Criteria;
+import org.llhbum.domain.ReplyPageDTO;
 import org.llhbum.domain.ReplyVO;
 import org.llhbum.mapper.ReplyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,15 @@ public class ReplyServiceImpl implements ReplyService {
 	public List<ReplyVO> getList(Criteria cri, Long bno) {
 		log.info("getList..................................");
 		return mapper.getListwithPaging(cri, bno);
+	}
+
+	@Override
+	public ReplyPageDTO getListPage(Criteria cri, Long bno) {
+		// TODO Auto-generated method stub
+		return new ReplyPageDTO(
+				mapper.getCountByBno(bno),
+				mapper.getListwithPaging(cri, bno)
+				);
 	}
 
 }
