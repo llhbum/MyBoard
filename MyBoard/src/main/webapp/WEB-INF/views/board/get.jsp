@@ -102,7 +102,7 @@
                 </div>
                 <div class="form-group">
                     <label>Replyer</label>
-                    <input class="form-control" name='replyer' value='replyer'>
+                    <input class="form-control" name='replyer' value='replyer' readonly="readonly">
                 </div>
                 <div class="form-group">
                     <label>Reply Date</label>

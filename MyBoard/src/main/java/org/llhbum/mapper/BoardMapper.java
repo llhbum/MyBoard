@@ -3,6 +3,7 @@ package org.llhbum.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.llhbum.domain.BoardVO;
 import org.llhbum.domain.Criteria;
 
@@ -39,4 +40,6 @@ public interface BoardMapper {
 	
 	// board의 조회수 
 	int boardHit(Long bno);
+	
+	public void updateReplyCnt(@Param("bno") Long bno, @Param("amount") int amount);
 }
