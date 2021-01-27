@@ -78,5 +78,11 @@ public class UploadController {
 		}
 		
 	}
+	
+	@GetMapping("/test")
+	public void test() {
+		log.info("test");
+	}
+	
 
 }
