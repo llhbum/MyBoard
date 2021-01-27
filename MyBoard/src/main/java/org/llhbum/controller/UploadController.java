@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
 
 @Controller
@@ -24,6 +25,7 @@ public class UploadController {
 	public void uploadForm() {
 		log.info("upload form");
 	}
+	
 	
 	@PostMapping("/uploadFormAction")
 	public void uploadFormPost(MultipartFile[] uploadFile, Model model) {
@@ -77,5 +79,12 @@ public class UploadController {
 		}
 		
 	}
+	
+	@GetMapping("/test")
+	public void test() {
+		log.info("test");
+		log.info("test22");
+	}
+	
 
 }
