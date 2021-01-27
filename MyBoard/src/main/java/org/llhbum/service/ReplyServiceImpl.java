@@ -3,10 +3,13 @@ package org.llhbum.service;
 import java.util.List;
 
 import org.llhbum.domain.Criteria;
+import org.llhbum.domain.ReplyPageDTO;
 import org.llhbum.domain.ReplyVO;
+import org.llhbum.mapper.BoardMapper;
 import org.llhbum.mapper.ReplyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.log4j.Log4j;
 
@@ -16,6 +19,9 @@ public class ReplyServiceImpl implements ReplyService {
 	
 	@Autowired
 	private ReplyMapper mapper;
+	
+	@Autowired
+	private BoardMapper boardMapper;
 	
 	@Override
 	public int register(ReplyVO vo) {
@@ -29,9 +35,14 @@ public class ReplyServiceImpl implements ReplyService {
 		return mapper.read(rno);
 	}
 
+	@Transactional
 	@Override
 	public int remove(Long rno) {
 		log.info("remove..................................");
+		
+		ReplyVO vo = mapper.read(rno);
+		
+		boardMapper.updateReplyCnt(vo.getBno(), -1);
 		return mapper.delete(rno);
 	}
 
@@ -46,5 +57,16 @@ public class ReplyServiceImpl implements ReplyService {
 		log.info("getList..................................");
 		return mapper.getListwithPaging(cri, bno);
 	}
+
+	@Override
+	public ReplyPageDTO getListPage(Criteria cri, Long bno) {
+		// TODO Auto-generated method stub
+		return new ReplyPageDTO(
+				mapper.getCountByBno(bno),
+				mapper.getListwithPaging(cri, bno)
+				);
+	}
+	
+	
 
 }
