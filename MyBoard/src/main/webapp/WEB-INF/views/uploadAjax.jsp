@@ -143,7 +143,6 @@
 									"<img src ='/resources/img/attach.jpg'>" +obj.fileName + "</a> "+
 									"<span data-file=\'"+fileCallPath+"\' data-type='file'> x </span>" + "</div></li>";
 						} else{
-							//str += "<li>" + obj.fileName + "</li>";
 							var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
 							
 							var originPath = obj.uploadPath + "\\" + obj.uuid + "_" + obj.fileName;
@@ -176,6 +175,8 @@
 				var targetFile = $(this).data("file");
 				var type = $(this).data("type");
 				console.log(targetFile);
+				console.log("uploadResult click");
+				
 				
 				$.ajax({
 					url: '/deleteFile',
