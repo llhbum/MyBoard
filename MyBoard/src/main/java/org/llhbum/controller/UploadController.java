@@ -189,18 +189,18 @@ public class UploadController {
 	@ResponseBody
 	public ResponseEntity<Resource> downloadFile(@RequestHeader("User-Agent") String userAgent, String fileName){
 		
-		org.springframework.core.io.Resource resource = new FileSystemResource("c:\\upload\\" + fileName);
+		Resource resource = new FileSystemResource("c:\\upload\\" + fileName);
 		
 		if (resource.exists() == false) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		
 		String resourceName = resource.getFilename();
-
-		//remove UUID
-		String resourceOriginName = resourceName.substring(resourceName.indexOf("_") + 1);
 		
 		HttpHeaders headers = new HttpHeaders();
+		
+		//remove UUID
+		String resourceOriginName = resourceName.substring(resourceName.indexOf("_") + 1);
 		
 		try {
 			
@@ -209,8 +209,8 @@ public class UploadController {
 			if(userAgent.contains("Trident")) {
 				log.info("IE");
 				downloadName = URLEncoder.encode(resourceOriginName, "UTF-8").replaceAll("\\+", " ");
-			}else if(userAgent.contains("egde")) {
-				log.info("edge");
+			}else if(userAgent.contains("Egde")) {
+				log.info("Edge");
 				downloadName = URLEncoder.encode(resourceOriginName, "UTF-8");
 			}else {
 				log.info("Chrome");
