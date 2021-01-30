@@ -36,6 +36,10 @@
                     <label>Writer</label><input class="form-control" name="writer"
                                                 value='<c:out value="${board.writer}"/>' readonly="readonly">
                 </div>
+                <div class="form-group">
+                    <label>조회수</label><input class="form-control" name="hit"
+                                                value='<c:out value="${board.hit}"/>' readonly="readonly">
+                </div>
                 <button data-oper='modify' class="btn btn-danger"
                         onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>'">수정/삭제
                 </button>
