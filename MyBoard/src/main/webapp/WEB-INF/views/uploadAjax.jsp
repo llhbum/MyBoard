@@ -41,11 +41,11 @@
 	
 	.uploadResult ul li{
 		list-style : none;
-		padding 10px;
+		padding : 10px;
 	}
 	
 	.uploadResult ul li img{
-		width : 20px;
+		width : 100px;
 	}
 	
 	.uploadResult ul li span{
@@ -177,7 +177,6 @@
 				var targetFile = $(this).data("file");
 				var type = $(this).data("type");
 				console.log(targetFile);
-				
 				console.log("uploadResult click");
 				
 				
@@ -186,9 +185,9 @@
 					data : {fileName: targetFile, type:type},
 					dataType:'text',
 					type : 'POST',
-						success : function(result){
-							alert(result);
-						}
+					success : function(result){
+						alert(result);
+					}
 				});//$.ajax
 			});
 		});
