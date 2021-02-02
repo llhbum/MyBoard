@@ -111,6 +111,7 @@ public class UploadController {
 		//make folder
 		File uploadPath = new File(uploadFolder, uploadFolderPath);
 		log.info("upload path " + uploadPath);
+		log.info("***uploadAjaxPost method***");
 		
 		if(uploadPath.exists() == false) {
 			uploadPath.mkdirs();

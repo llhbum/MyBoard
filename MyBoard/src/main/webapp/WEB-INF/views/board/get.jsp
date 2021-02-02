@@ -106,7 +106,7 @@
                 </div>
                 <div class="form-group">
                     <label>Replyer</label>
-                    <input class="form-control" name='replyer' value='replyer' readonly="readonly">
+                    <input class="form-control" name='replyer' value='replyer'>
                 </div>
                 <div class="form-group">
                     <label>Reply Date</label>
@@ -125,6 +125,21 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+ <div class = "row">
+ 	<div class = "col-lg-12">
+ 		<div class = "panel panel-default">
+ 			<div class = "panel-heading">Files</div>
+ 				<div class= "panel-body">
+ 					<div class = "uploadResult">
+ 						<ul>
+ 						
+ 						</ul>
+ 					</div>
+ 				 </div><!--  end panel body -->
+ 		</div><!--  end panel-default-->
+ 	</div><!--  end col-lg-12 -->
+ </div><!--  end "row" -->
 
 <!-- style -->
 	<style>
@@ -176,7 +191,10 @@
 	}
 	
 	</style>
-	<!-- end style -->
+<!-- end style -->
+	
+	
+
 	
 
 
@@ -225,54 +243,7 @@
     */
     
 </script>
-<script>
-	$(document).ready(function(){
-			(function(){
-			var bno = '<c:out value ="${board.bno}"/>';
-			
-			$.getJSON("/board/getAttachList", {bno:bno},function(arr){
-				console.log(arr);
-				
-				var str = "";
-				
-				$(arr).each(function(i, attach){
-					if (attach.fileType){
-						var fileCallPath = encodeURIComponent(attach.uploadPath + "/s_" +attach.uuid + "_" + attach.fileName);
-						str += "<li data-path =' " +attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='" + attach.fileName +"' data-type = '" + attach.fileType + "'><div>";
-						str += "<img src = '/display?fileName=" + fileCallPath +"'>";
-						str += "</div>";
-						str += "</li>";
-					} else{
-						str += "<li data-path = '" + attach.uploadPath +"' data-uuid = '" + attach.uuid +"' data-filename = '" + attach.fileName +"' data-type = '" + attach.fileType +"'><div>";
-						str += "<span> " + attach.fileName + "</span><br/>";
-						str += "<img src = '/resources/img/attach.png'></a>";
-						str += "</div>";
-						str += "</li>";
-						}	
-				}); //end func
-				$(".uploadResult ul").html(str);
-			});// end getjson
-		
-		$(".uploadResult").on("click", "li", function(e){
-			console.log("View image");
-			var liObj = $(this);
-			
-			var path = encodeURIComponent(liObj.data("path") + "/" + liObj.data("uuid")+ "_" + liObj.data("filename"));
-			if(liObj.data("type")){
-				showImage(path.replace(new Reg(/\\/g),"/"));
-			}else{
-				self.location = "/download?fileName=" +path
-			}
-		}); //end uploadResult click
-			
-		function showImage(fileCallPath){
-			alret(fileCallPath);
-			$(".bigPictureWrapper").css("display","flex").show();
-			$(".bigPicture").html("<img src = '/display?fileName="+fileCallPath+"'>").animate({width:'100%',height:'100%'},1000);
-		}// end showImage func
-	});
-});
-</script>
+
 <script>
     $(document).ready(function () {
         var bnoValue = '<c:out value="${board.bno}"/>';
@@ -355,7 +326,7 @@
         	   console.log("chat Click reply Test " + reply.reply);
         	   
               modalInputReply.val(reply.reply);
-              modalInputReplyer.val(reply.replyer);
+              modalInputReplyer.val(reply.replyer).attr("readonly","readonly");
               modalInputReplyDate.val(replyService.displayTime(reply.replyDate)).attr("readonly", "readonly");
               
               modal.data("rno", reply.rno);
@@ -382,7 +353,6 @@
         	var rno = modal.data("rno");
         	replyService.remove(rno, function(result){
         		alert("댓글이 삭제되었습니다.");
-        		//alert(result);
         		modal.modal("hide");
         		showList(pageNum);
         	});
@@ -450,6 +420,38 @@
             operForm.submit();
         });
     });
+</script>
+
+<script>
+	$(document).ready(function(){
+		(function(){
+			var bno = '<c:out value="${board.bno}"/>';
+			$.getJSON("/board/getAttachList", {bno:bno},function(arr){
+				console.log(arr);
+				
+				var str = "";
+				
+				$(arr).each(function(i, attach){
+					//image
+					if (attach.fileType){
+						var attchFN = attach.fileName.trim();
+						var fileCallPath = encodeURIComponent(attach.uploadPath + "/s_" +attach.uuid + "_" + attchFN);
+						str += "<li data-path =' " +attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='" + attchFN +"' data-type = '" + attach.fileType + "'><div>";
+						str += "<img src = '/display?fileName=" + fileCallPath +"'>";
+						str += "</div>";
+						str += "</li>";
+					} else{
+						str += "<li data-path = '" + attach.uploadPath +"' data-uuid = '" + attach.uuid +"' data-filename = '" + attach.fileName +"' data-type = '" + attach.fileType +"'><div>";
+						str += "<span> " + attach.fileName + "</span><br/>";
+						str += "<img src = '/resources/img/attach.jpg'></a>";
+						str += "</div>";
+						str += "</li>";
+						}	
+				}); //end func
+				$(".uploadResult ul").html(str);
+			});// end getjson
+		})();
+	});
 </script>
 
 <%@include file="../includes/footer.jsp" %>

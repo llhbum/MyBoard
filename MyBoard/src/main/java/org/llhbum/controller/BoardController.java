@@ -1,16 +1,24 @@
 package org.llhbum.controller;
 
+import java.util.List;
+
+import org.llhbum.domain.BoardAttachVO;
 import org.llhbum.domain.BoardVO;
 import org.llhbum.domain.Criteria;
 import org.llhbum.domain.pageDTO;
 import org.llhbum.service.BoardService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.AllArgsConstructor;
@@ -42,11 +50,22 @@ public class BoardController {
 	 
 	@PostMapping("/register")
 	public String register(BoardVO board, RedirectAttributes rttr) {
-		log.info("board : " + board);
-		Long bno = service.register(board);
-		log.info("BNO : " + bno);
+		log.info("*** register Method ***");
 		
-		rttr.addFlashAttribute("result", bno);
+		
+		log.info("=====================================");
+		
+		log.info("register : " + board);
+		
+		if(board.getAttachList() != null) {
+			board.getAttachList().forEach(attach -> log.info(attach));
+		}
+		
+		log.info("=====================================");
+		log.info("board : " + board);
+		service.register(board);
+//		log.info("BNO : " + bno);
+		rttr.addFlashAttribute("result", board.getBno());
 		
 		return "redirect:/board/list";
 	}
@@ -91,5 +110,13 @@ public class BoardController {
 		rttr.addAttribute("keyword", cri.getKeyword());
 		
 		return "redirect:/board/list";
+	}
+	
+	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@ResponseBody
+	public ResponseEntity<List<BoardAttachVO>>getAttachList(Long bno){
+		log.info("getAttachList " + bno);
+		
+		return new ResponseEntity<List<BoardAttachVO>>(service.getAttachList(bno), HttpStatus.OK);
 	}
 }

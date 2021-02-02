@@ -19,7 +19,8 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <form action="/board/register" method="post">
+                        
+                            <form role="registerForm" action="/board/register" method="POST">
                             	<div class="form-group">
                                    <label>Title</label>
                                    <input class="form-control" name = "title">
@@ -35,16 +36,16 @@
                                    <input class="form-control" name = "writer">
                                 </div>
 									<button type="submit" class="btn btn-default">작성</button>
-                            		<button type = "button" class="btn btn-info listbtn"><a href='/board/list'></a>목록</button>
+                            		<button type = "button" class="btn btn-info listbtn">목록</button>
                             		<button type="reset" class="btn btn-danger">초기화</button>
                             </form>
                            
+                        
                             <form id="actionForm" action="/board/list" method="get">
                             	<input type ="hidden" name="pageNum" value="${cri.pageNum }">
 							   	<input type ="hidden" name="amount" value="${cri.amount }">
                             </form>
-                            		
-                            		
+                            	
 							<script>
 	                        	var actionForm = $("#actionForm");
 	                        	
@@ -53,6 +54,7 @@
 	                        		actionForm.submit();
 	                        	});
                         	</script>
+                        	
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -137,10 +139,23 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	$(document).ready(function(e){
-		var formObj = $("form[role='form']");
+		var formObj = $("form[role='registerForm']");
 		$("button[type='submit']").on("click",function(e){
 			e.preventDefault();
 			console.log("submit clicked");
+			
+			var str = "";
+			
+			$(".uploadResult ul li").each(function(i, obj){
+				var jobj = $(obj);
+				console.dir(jobj);
+				
+				str += "<input type = 'hidden' name = 'attachList[" +i +"].fileName' value= '" +jobj.data("filename")+"'>";
+				str += "<input type = 'hidden' name = 'attachList[" +i +"].uuid' value= '" +jobj.data("uuid")+"'>";
+				str += "<input type = 'hidden' name = 'attachList[" +i +"].uploadPath' value= '" +jobj.data("path")+"'>";
+				str += "<input type = 'hidden' name = 'attachList[" +i +"].fileType' value= '" +jobj.data("type")+"'>";
+			});
+			formObj.append(str).submit();
 		});
 		
 		var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
@@ -199,7 +214,10 @@
 						str += "<span> " + obj.fileName + "</span>";
 						str += "<button type = 'button' data-file=\'" + fileCallPath + "\' data-type = 'file'"
 						str += "class = 'btn btn-waring btn-circle'><i class = 'fa fa-times'></i></button><br>";
-						str += "<img src = '/resources/img/attach.jpg'>";
+						
+						//attach.jpg의 크기가 제대로 처리되지 않음 -> 파일이름 변경해놓음
+						str += "<img src = '/resources/img/attach2.jpg'>";
+						
 						str += "</div>";
 						str += "</li>";
 					}
@@ -221,7 +239,7 @@
 					showUploadResult(result)
 					//$(".uploadDiv").html(cloneObj.html());
 				}
-			}); //$.ajax
+			}); //uploadAjaxAction $.ajax
 		});
 		
 		$(".uploadResult").on("click", "button",function(e){
