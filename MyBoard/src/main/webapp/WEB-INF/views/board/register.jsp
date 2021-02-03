@@ -205,6 +205,7 @@
 						str += "<img src = '/display?fileName=" + fileCallPath +"'>";
 						str += "</div>";
 						str += "</li>";
+					// not Image type
 					}else{
 						var fileCallPath = encodeURIComponent(obj.uploadPath + "/" +obj.uuid + "_" + obj.fileName);
 						var fileLink = fileCallPath.replace(new RegExp(/\\/g),"/");
@@ -214,17 +215,13 @@
 						str += "<span> " + obj.fileName + "</span>";
 						str += "<button type = 'button' data-file=\'" + fileCallPath + "\' data-type = 'file'"
 						str += "class = 'btn btn-waring btn-circle'><i class = 'fa fa-times'></i></button><br>";
-						
-						//attach.jpg의 크기가 제대로 처리되지 않음 -> 파일이름 변경해놓음
-						str += "<img src = '/resources/img/attach2.jpg'>";
-						
+						str += "<img src = '/resources/img/attach.jpg' width="+"100px"+" height="+ "80px" +"'>";
 						str += "</div>";
 						str += "</li>";
 					}
 				});
 				
 				uploadUL.append(str);
-				
 			}
 			
 			$.ajax({
@@ -236,7 +233,7 @@
 				dataType : 'json',
 				success : function(result){
 					console.log(result);
-					showUploadResult(result)
+					showUploadResult(result);
 					//$(".uploadDiv").html(cloneObj.html());
 				}
 			}); //uploadAjaxAction $.ajax

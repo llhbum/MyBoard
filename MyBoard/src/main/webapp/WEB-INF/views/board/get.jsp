@@ -162,7 +162,7 @@
 	}
 	
 	.uploadResult ul li img{
-		width : 20px;
+		width : 100px;
 	}
 	
 	.uploadResult ul li span{

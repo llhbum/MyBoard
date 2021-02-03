@@ -80,7 +80,6 @@ public class UploadController {
 		
 		try {
 			String contentType = Files.probeContentType(file.toPath());
-			
 			return contentType.startsWith("image");
 		}catch(IOException e) {
 			e.printStackTrace();
