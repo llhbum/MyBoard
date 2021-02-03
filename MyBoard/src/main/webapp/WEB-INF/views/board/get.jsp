@@ -85,7 +85,7 @@
     </div>
     <!-- ./ end row -->
     <div class = 'bigPictureWrapper'>
-    	<div class ='bigpicture'>
+    	<div class ='bigPicture'>
     	</div>	
     </div>
 </div>
@@ -451,6 +451,27 @@
 				$(".uploadResult ul").html(str);
 			});// end getjson
 		})();
+		
+        $(".uploadResult").on("click", "li",function(e){
+        	console.log("View Image");
+        	var liObj = $(this);
+        	var path = encodeURIComponent(liObj.data("path")+"/"+liObj.data("uuid")+"_"+liObj.data("filename"));
+        	
+        	if(liObj.data("type")){
+        		var tempPath = path.replace(new RegExp(/\\/g),"/");
+        		var tempPaht2 = tempPath.replace(/(\s*)/g, "") ;
+        		showImage(tempPaht2);
+        	}else{
+        		//download
+        		self.location = "/download?fileName="+path;
+        	}
+        });
+        
+        function showImage(fileCallPath){
+    		alert(fileCallPath);
+    		$(".bigPictureWrapper").css("display","flex").show();
+    		$(".bigPicture").html("<img src = '/display?fileName="+fileCallPath+"'>").animate({width:'100%',height:'100%'},1000);
+    	}
 	});
 </script>
 
