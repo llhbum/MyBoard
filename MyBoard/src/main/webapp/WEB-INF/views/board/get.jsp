@@ -455,12 +455,11 @@
         $(".uploadResult").on("click", "li",function(e){
         	console.log("View Image");
         	var liObj = $(this);
-        	var path = encodeURIComponent(liObj.data("path")+"/"+liObj.data("uuid")+"_"+liObj.data("filename"));
-        	
+        	var data_path = liObj.data("path").replace(/\s/gi, '');
+        	var path = encodeURIComponent(data_path+"/"+liObj.data("uuid")+"_"+liObj.data("filename"));
+        	console.log(path);
         	if(liObj.data("type")){
-        		var tempPath = path.replace(new RegExp(/\\/g),"/");
-        		var tempPaht2 = tempPath.replace(/(\s*)/g, "") ;
-        		showImage(tempPaht2);
+        		showImage(path);
         	}else{
         		//download
         		self.location = "/download?fileName="+path;
@@ -472,6 +471,13 @@
     		$(".bigPictureWrapper").css("display","flex").show();
     		$(".bigPicture").html("<img src = '/display?fileName="+fileCallPath+"'>").animate({width:'100%',height:'100%'},1000);
     	}
+        
+        $(".bigPictureWrapper").on("click",function(e){
+        	$(".bigPicture").animate({width : '0%', height: '0%'}, 1000);
+        	setTimeout(function(){
+        		$(".bigPictureWrapper").hide();
+        	},1000);
+        });
 	});
 </script>
 

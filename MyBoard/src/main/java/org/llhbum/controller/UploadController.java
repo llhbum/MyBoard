@@ -104,7 +104,6 @@ public class UploadController {
 		log.info("updata ajax post ............");
 		
 		String uploadFolder = "C:\\upload";
-		
 		String uploadFolderPath = getFolder();
 		
 		//make folder
@@ -124,10 +123,12 @@ public class UploadController {
 			log.info("--------------------------------------");
 			log.info("Upload File Name: " + multipartFile.getOriginalFilename());
 			log.info("Upload File Size" + multipartFile.getSize());
+			log.info("--------------------------------------");
 			
 			String uploadFileName = multipartFile.getOriginalFilename();
 			
 			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
+			log.info("");
 			log.info("Only file Name : " + uploadFileName);
 			attachDTO.setFileName(uploadFileName);
 			
@@ -166,7 +167,6 @@ public class UploadController {
 	@GetMapping("/display")
 	@ResponseBody
 	public ResponseEntity<byte[]> getFile(String fileName){
-		log.info("fileName " + fileName);
 		
 		File file = new File("c:\\upload\\" + fileName);
 		

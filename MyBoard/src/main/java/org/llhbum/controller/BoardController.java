@@ -54,17 +54,15 @@ public class BoardController {
 		
 		
 		log.info("=====================================");
-		
 		log.info("register : " + board);
 		
+		//getAttachList에 파일 형식은 저장되어있지않음.
 		if(board.getAttachList() != null) {
 			board.getAttachList().forEach(attach -> log.info(attach));
 		}
-		
 		log.info("=====================================");
-		log.info("board : " + board);
+		
 		service.register(board);
-//		log.info("BNO : " + bno);
 		rttr.addFlashAttribute("result", board.getBno());
 		
 		return "redirect:/board/list";
