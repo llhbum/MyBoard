@@ -80,7 +80,6 @@ public class UploadController {
 		
 		try {
 			String contentType = Files.probeContentType(file.toPath());
-			
 			return contentType.startsWith("image");
 		}catch(IOException e) {
 			e.printStackTrace();
@@ -111,6 +110,7 @@ public class UploadController {
 		//make folder
 		File uploadPath = new File(uploadFolder, uploadFolderPath);
 		log.info("upload path " + uploadPath);
+		log.info("***uploadAjaxPost method***");
 		
 		if(uploadPath.exists() == false) {
 			uploadPath.mkdirs();

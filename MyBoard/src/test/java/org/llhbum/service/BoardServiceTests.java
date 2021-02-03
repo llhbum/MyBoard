@@ -34,8 +34,8 @@ public class BoardServiceTests {
 		vo.setContent("upadate content");
 		vo.setWriter("upadate writer");
 		
-		long bno = service.register(vo);
+//		long bno = service.register(vo);
 		
-		log.info("bno : " + bno);
+//		log.info("bno : " + bno);
 	}
 }
