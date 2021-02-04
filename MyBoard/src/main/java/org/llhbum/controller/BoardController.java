@@ -1,5 +1,8 @@
 package org.llhbum.controller;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.llhbum.domain.BoardAttachVO;
@@ -11,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -81,9 +85,8 @@ public class BoardController {
 	
 	@PostMapping("/modify")
 	public String modify(BoardVO board, RedirectAttributes rttr, Criteria cri ) {
-		int count = service.modify(board);
 		
-		if(count == 1) {
+		if(service.modify(board)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		rttr.addAttribute("pageNum", cri.getPageNum());
@@ -96,18 +99,14 @@ public class BoardController {
 	
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno")Long bno, RedirectAttributes rttr , Criteria cri) {
-		int count = service.remove(bno);
 		
-		if(count == 1) {
+		List<BoardAttachVO> attachList = service.getAttachList(bno);
+		
+		if(service.remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
+			deleteFiles(attachList);
 		}
-		
-		rttr.addAttribute("pageNum", cri.getPageNum());
-		rttr.addAttribute("amount", cri.getAmount());
-		rttr.addAttribute("type", cri.getType());
-		rttr.addAttribute("keyword", cri.getKeyword());
-		
-		return "redirect:/board/list";
+		return "redirect:/board/list" + cri.getListLink();
 	}
 	
 	@GetMapping(value = "/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -116,5 +115,32 @@ public class BoardController {
 		log.info("getAttachList " + bno);
 		
 		return new ResponseEntity<List<BoardAttachVO>>(service.getAttachList(bno), HttpStatus.OK);
+	}
+	
+	private void deleteFiles(List<BoardAttachVO> attachList) {
+		if(attachList == null || attachList.size() == 0) {
+			return;
+		}
+		
+		log.info("delete attach files.....................");
+		log.info(attachList);
+		
+		attachList.forEach(attach -> {
+			try {
+				// 파일이름뒤에 공백 발견 trim으로 제거
+				String attachFN = attach.getFileName().trim();
+				Path file = Paths.get("C:\\upload\\" + attach.getUploadPath()+"\\"+attach.getUuid()+"_"+attachFN);
+				Files.deleteIfExists(file);
+				
+				if(Files.probeContentType(file).startsWith("image")) {
+					
+					Path thumbNail = Paths.get("C:\\upload\\" + attach.getUploadPath()+"\\s_"+attach.getUuid()+"_"+attachFN);
+					
+					Files.delete(thumbNail);
+				}
+			}catch(Exception e) {
+				log.error("delete file error " + e.getMessage());
+			}
+		});
 	}
 }

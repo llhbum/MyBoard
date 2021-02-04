@@ -29,18 +29,14 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private final BoardAttachMapper attachMapper ;
 	
-	
-
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	public void register(BoardVO board) {
 		// TODO Auto-generated method stub
-		
 		mapper.insertSelectKey(board);
-		if(board.getAttachList() == null || board.getAttachList().size() <= 0) {
+		if(board.getAttachList() == null || board.getAttachList().size() <= 0){
 			return;
 		}
-		
 		board.getAttachList().forEach(attach -> {
 			attach.setBno(board.getBno());
 			attachMapper.insert(attach);
@@ -51,22 +47,36 @@ public class BoardServiceImpl implements BoardService{
 	@Transactional(isolation = Isolation.READ_COMMITTED)
 	public BoardVO get(Long bno) {
 		// TODO Auto-generated method stub
-		
 		mapper.boardHit(bno);
 		return mapper.read(bno);
 	}
 
 	@Override
-	public int modify(BoardVO board) {
-		// TODO Auto-generated method stub
+	@Transactional(isolation = Isolation.READ_COMMITTED)
+	public boolean modify(BoardVO board) {
+		log.info("modify ............ " + board);
 		
-		return mapper.update(board);
+		// 모든 upload파일/이미지 다 지움
+		attachMapper.deleteAll(board.getBno());
+		
+		boolean modifyResult = mapper.update(board) == 1;
+		
+		if(modifyResult && board.getAttachList() != null && board.getAttachList().size()>0) {
+			board.getAttachList().forEach(attach -> {
+				attach.setBno(board.getBno());
+				attachMapper.insert(attach);
+			});
+		}
+		return modifyResult;
 	}
 
 	@Override
-	public int remove(Long bno) {
+	@Transactional(isolation = Isolation.READ_COMMITTED)
+	public boolean remove(Long bno) {
 		// TODO Auto-generated method stub
-		return mapper.delete(bno);
+		log.info("remove.... " + bno );
+		attachMapper.deleteAll(bno);
+		return mapper.delete(bno) == 1;
 	}
 
 	@Override

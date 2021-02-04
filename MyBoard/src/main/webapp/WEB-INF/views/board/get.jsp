@@ -434,14 +434,17 @@
 				$(arr).each(function(i, attach){
 					//image
 					if (attach.fileType){
-						var attchFN = attach.fileName.trim();
-						var fileCallPath = encodeURIComponent(attach.uploadPath + "/s_" +attach.uuid + "_" + attchFN);
-						str += "<li data-path =' " +attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='" + attchFN +"' data-type = '" + attach.fileType + "'><div>";
-						str += "<img src = '/display?fileName=" + fileCallPath +"'>";
+						var attachFN = attach.fileName.trim();
+						var attachPath = attach.uploadPath.trim();
+						var fileCallPath = encodeURIComponent(attachPath + "/s_" +attach.uuid + "_" + attachFN);
+						
+						str += "<li data-path ='"+attachPath+ "' data-uuid='" + attach.uuid + "' data-filename='" + attachFN +"' data-type = '" + attach.fileType + "'><div>";
+						str += "<span>" + attach.fileName + "</span><br/>"
+						str += "<img src = '/display?fileName="+fileCallPath+"'>";
 						str += "</div>";
 						str += "</li>";
 					} else{
-						str += "<li data-path = '" + attach.uploadPath +"' data-uuid = '" + attach.uuid +"' data-filename = '" + attach.fileName +"' data-type = '" + attach.fileType +"'><div>";
+						str += "<li data-path ='" + attach.uploadPath +"' data-uuid = '" + attach.uuid +"' data-filename = '" + attach.fileName +"' data-type = '" + attach.fileType +"'><div>";
 						str += "<span> " + attach.fileName + "</span><br/>";
 						str += "<img src = '/resources/img/attach.jpg'></a>";
 						str += "</div>";
