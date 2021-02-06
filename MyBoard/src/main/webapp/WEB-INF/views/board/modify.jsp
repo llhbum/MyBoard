@@ -21,7 +21,7 @@
                        
                         <div class="panel-body">
                         
-	                         <form action="/board/register" method="POST">
+	                         <form action="/board/modify" method="POST">
 	                         	<input type='hidden' name ='pageNum' value ='<c:out value="${cri.pageNum }"/>'>
 	                         	<input type='hidden' name ='amount' value ='<c:out value="${cri.amount }"/>'>
 	                        	<div class="form-group">
@@ -72,6 +72,11 @@
 			 		</div><!--  end panel-default-->
 			 	</div><!--  end col-lg-12 -->
 			 </div><!--  end "row" -->
+			 
+			 <div class='bigPictureWrapper'>
+			 	<div class= 'bigPicture'>
+			 	</div>
+			 </div>
 <!-- style -->
 	<style>
 	
@@ -144,10 +149,12 @@
 			formObj.empty();
 			formObj.append(pageNumTag);
 			formObj.append(amountTag);
-			
+			formObj.submit();
 		}else if(operation === 'remove'){
 			console.log("remove clicked");
-			formObj.attr("action","/board/remove").attr("method","post");
+			formObj.attr("action","/board/remove");
+			//.attr("method","post");
+			formObj.submit();
 			
 		}else if(operation === 'modify'){
 			console.log("modify clicked");
@@ -161,12 +168,11 @@
 				str += "<input type = 'hidden' name = 'attachList[" +i +"].uuid' value= '" +jobj.data("uuid")+"'>";
 				str += "<input type = 'hidden' name = 'attachList[" +i +"].uploadPath' value= '" +jobj.data("path")+"'>";
 				str += "<input type = 'hidden' name = 'attachList[" +i +"].fileType' value= '" +jobj.data("type")+"'>";
-			
 				});
 			formObj.append(str).submit();
 		}
-		formObj.submit();
 	 });
+
 		var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 		var maxSize = 5242880;
 		
@@ -185,6 +191,7 @@
 		}
 		
 		$("input[type='file']").change(function(e){
+			
 			var formData = new FormData();
 			var inputFile = $("input[name='uploadFile']");
 			var files = inputFile[0].files;
@@ -198,6 +205,7 @@
 			
 			// 업로드 이미지&파일 표출
 			function showUploadResult(uploadResultArr){
+				alert("showUploadResult 함수");
 				if(!uploadResultArr || uploadResultArr.length == 0){return;}
 				var uploadUL = $(".uploadResult ul");
 				var str = "";
@@ -205,17 +213,20 @@
 				$(uploadResultArr).each(function(i, obj){
 					//image type
 					if(obj.image){
-						var fileCallPath = encodeURIComponent(obj.uploadPath + "/" +obj.uuid + "_" + obj.fileName);
+						//var objFN = obj.fileName.trim();
+						//var objPath = obj.uploadPath.replace(/^\s+|\s+$/gm,'');
+						console.log("objFN :" + objFN);
+						console.log("objPath :" + objPath);
 						
+						var fileCallPath = encodeURIComponent(obj.uploadPath + "/" +obj.uuid + "_" +obj.fileName);
 						str += "<li data-path ='" +obj.uploadPath + "'";
 						str += "data-uuid='"+ obj.uuid +"'data-filename='"+ obj.fileName +" 'data-type = '" + obj.image +"'";
 						str += "> <div>";
-						str += "<span> " + obj.fileName + "</span>";
+						str += "<span>"+obj.fileName+"</span>";
 						str += "<button type = 'button'  data-file=\'" + fileCallPath + "\' data-type = 'image' class = 'btn btn-waring btn-circle'><i class = 'fa fa-times'></i></button><br>";
 						str += "<img src = '/display?fileName=" + fileCallPath +"'>";
 						str += "</div>";
 						str += "</li>";
-						
 					// not Image type
 					}else{
 						var fileCallPath = encodeURIComponent(obj.uploadPath + "/" +obj.uuid + "_" + obj.fileName);
@@ -230,11 +241,11 @@
 						str += "</li>";
 					}
 				});
-				
 				uploadUL.append(str);
 			}
- 	});
- });
+	 	});
+	 	
+	 });
 </script>  
 
 <script>
@@ -248,16 +259,16 @@
 					//image
 					if (attach.fileType){
 						//fileName공백발생 -> trim()으로 제거 
-						var attchFN = attach.fileName.trim();
-						var fileCallPath = encodeURIComponent(attach.uploadPath + "/s_" +attach.uuid + "_" + attchFN);
-						
-						str += "<li data-path =' " +attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='" + attchFN +"' data-type = '" + attach.fileType + "'><div>";
-						str += "<span> " + attach.fileName + "</span><br/>";
+						var attachFN = attach.fileName.trim();
+						var attachPath = attach.uploadPath.trim();
+						var fileCallPath = encodeURIComponent(attachPath + "/s_" +attach.uuid + "_" + attachFN);
+						str += "<li data-path ='" +attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='" + attachFN +"' data-type = '" + attach.fileType + "'><div>";
+						str += "<span> " + attachPath + "</span><br/>";
 						str += "<button type='button' data-file=\'" + fileCallPath +"\' data-type='image' class='btn btn=warning btn-circle'><i class='fa fa-times'></i></button>";
 						str += "<img src = '/display?fileName=" + fileCallPath +"'>";
 						str += "</div>";
 						str += "</li>";
-					} else{
+					}else{
 						str += "<li data-path = '" + attach.uploadPath +"' data-uuid = '" + attach.uuid +"' data-filename = '" + attach.fileName +"' data-type = '" + attach.fileType +"'><div>";
 						str += "<span> " + attach.fileName + "</span><br/>";
 						str += "<button type='button' data-file=\'" + fileCallPath +"\' data-type='file' class='btn btn=warning btn-circle'><i class='fa fa-times'></i></button>";
