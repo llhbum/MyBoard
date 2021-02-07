@@ -44,4 +44,8 @@
 		]]>
 	</select>
 	
+	<delete id="replyDeleteAll">
+		delete from tbl_reply where bno = #{bno}
+	</delete>
+	
 </mapper>  

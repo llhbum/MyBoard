@@ -235,7 +235,7 @@
 						str += "<span> " + obj.fileName + "</span>";
 						str += "<button type = 'button' data-file=\'" + fileCallPath + "\' data-type = 'file'"
 						str += "class = 'btn btn-waring btn-circle'><i class = 'fa fa-times'></i></button><br>";
-						str += "<img src = '/resources/img/attach.jpg' width="+"100px"+" height="+ "80px" +"'>";
+						str += "<img src = '/resources/img/attach.jpg' width="+"80px"+" height="+ "80px" +"'>";
 						str += "</div>";
 						str += "</li>";
 					}
