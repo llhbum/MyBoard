@@ -199,7 +199,7 @@
 					//image type
 					if(obj.image){
 						var fileCallPath = encodeURIComponent(obj.uploadPath + "/" +obj.uuid + "_" + obj.fileName);
-						
+						console.log("uploadResultArr " + fileCallPath);
 						str += "<li data-path ='" +obj.uploadPath + "'";
 						str += "data-uuid='"+ obj.uuid +"'data-filename='"+ obj.fileName +" 'data-type = '" + obj.image +"'";
 						str += "> <div>";
