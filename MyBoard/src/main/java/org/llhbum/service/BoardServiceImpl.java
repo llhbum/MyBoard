@@ -7,6 +7,7 @@ import org.llhbum.domain.BoardVO;
 import org.llhbum.domain.Criteria;
 import org.llhbum.mapper.BoardAttachMapper;
 import org.llhbum.mapper.BoardMapper;
+import org.llhbum.mapper.ReplyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -28,6 +29,8 @@ public class BoardServiceImpl implements BoardService{
 	private final BoardMapper mapper;
 	@Autowired
 	private final BoardAttachMapper attachMapper ;
+	@Autowired
+	private final ReplyMapper replyMapper;
 	
 	@Override
 	@Transactional(isolation = Isolation.READ_COMMITTED)
@@ -76,6 +79,7 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		log.info("remove.... " + bno );
 		attachMapper.deleteAll(bno);
+		replyMapper.replyDeleteAll(bno);
 		return mapper.delete(bno) == 1;
 	}
 
