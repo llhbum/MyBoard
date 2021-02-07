@@ -205,7 +205,6 @@
 			
 			// 업로드 이미지&파일 표출
 			function showUploadResult(uploadResultArr){
-				alert("showUploadResult 함수");
 				if(!uploadResultArr || uploadResultArr.length == 0){return;}
 				var uploadUL = $(".uploadResult ul");
 				var str = "";
@@ -213,8 +212,8 @@
 				$(uploadResultArr).each(function(i, obj){
 					//image type
 					if(obj.image){
-						//var objFN = obj.fileName.trim();
-						//var objPath = obj.uploadPath.replace(/^\s+|\s+$/gm,'');
+						var objFN = obj.fileName.trim();
+						var objPath = obj.uploadPath.replace(/^\s+|\s+$/gm,'');
 						console.log("objFN :" + objFN);
 						console.log("objPath :" + objPath);
 						
@@ -243,6 +242,21 @@
 				});
 				uploadUL.append(str);
 			}
+			
+			$.ajax({
+				url : '/uploadAjaxAction',
+				processData : false,
+				contentType : false,
+				data : formData,
+				type : 'POST',
+				dataType : 'json',
+				success : function(result){
+					console.log(result);
+					// 업로드 이미지 표출
+					showUploadResult(result);
+					//$(".uploadDiv").html(cloneObj.html());
+				}
+			}); //uploadAjaxAction $.ajax
 	 	});
 	 	
 	 });
@@ -250,6 +264,7 @@
 
 <script>
 	$(document).ready(function(){
+		<!-- 
 		(function(){
 			var bno = '<c:out value="${board.bno}"/>';
 			$.getJSON("/board/getAttachList", {bno:bno},function(arr){
@@ -263,7 +278,7 @@
 						var attachPath = attach.uploadPath.trim();
 						var fileCallPath = encodeURIComponent(attachPath + "/s_" +attach.uuid + "_" + attachFN);
 						str += "<li data-path ='" +attach.uploadPath + "' data-uuid='" + attach.uuid + "' data-filename='" + attachFN +"' data-type = '" + attach.fileType + "'><div>";
-						str += "<span> " + attachPath + "</span><br/>";
+						str += "<span> " + attachFN + "</span><br/>";
 						str += "<button type='button' data-file=\'" + fileCallPath +"\' data-type='image' class='btn btn=warning btn-circle'><i class='fa fa-times'></i></button>";
 						str += "<img src = '/display?fileName=" + fileCallPath +"'>";
 						str += "</div>";
