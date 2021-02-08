@@ -8,18 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.handler.Handler;
 
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 import lombok.extern.log4j.Log4j;
 
 @Log4j
-public class CustomAccessDeniedHandler {
+public class CustomAccessDeniedHandler implements AccessDeniedHandler {
+	@Override
+	public void handle(HttpServletRequest request, HttpServletResponse response,
+			AccessDeniedException accessDeniedException) throws IOException, ServletException {
+		// TODO Auto-generated method stub
+		log.error("Access Denied Handler");
+		log.error("Redirect.....");
 	
-	public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessException)
-	throws IOException, ServletException{
-		log.error("");
-		log.error("");
-		
 		response.sendRedirect("/accessError");
 	}
-	
 }
