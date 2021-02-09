@@ -7,22 +7,25 @@
 		
 		
 		<bean id="customAccessDenied" class="org.llhbum.security.CustomAccessDeniedHandler"></bean>
+		<bean id="customLoginSuccess" class="org.llhbum.security.CustomLoginSuccessHandler"></bean>
 		
 		<security:http>
 		
-		<security:intercept-url pattern="/sample/all" access="permitAll"/>
-		
-		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
-		
-		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
-		 
-		<!--  <security:access-denied-handler error-page="/accessError" />  -->
-		<security:access-denied-handler ref="customAccessDenied"/>
-		 
-		 <!-- 
-		<security:form-login/>
-		 --> 
-		 <security:form-login login-page="/customLogin" />
+			<security:intercept-url pattern="/sample/all" access="permitAll"/>
+			
+			<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
+			
+			<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
+			 
+			<!--  <security:access-denied-handler error-page="/accessError" />  -->
+			<security:access-denied-handler ref="customAccessDenied"/>
+			 
+			 <security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
+			 <security:logout logout-url="/customlogout" invalidate-session="true"/>
+			 <!-- 
+			<security:form-login/>
+			 <security:form-login login-page="/customLogin" />
+			 --> 
 		</security:http>
 		
 		<security:authentication-manager>
