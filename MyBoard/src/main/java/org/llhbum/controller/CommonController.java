@@ -22,7 +22,8 @@ public class CommonController {
 	public void loginInput(String error, String logout, Model model) {
 		log.info("error : " + error);
 		log.info("logout : " + logout);
-		
+		 
+		//if문
 		if(error != null) {
 			model.addAttribute("error", "Login Error Check Your Account");
 		}
