@@ -13,6 +13,7 @@ import org.llhbum.service.BoardService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -53,10 +54,8 @@ public class BoardController {
 	}
 	 
 	@PostMapping("/register")
+	@PreAuthorize("isAuthenticated()")
 	public String register(BoardVO board, RedirectAttributes rttr) {
-		log.info("*** register Method ***");
-		
-		
 		log.info("=====================================");
 		log.info("register : " + board);
 		
@@ -73,6 +72,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/register")
+	@PreAuthorize("isAuthenticated()")
 	public void registerGET(@ModelAttribute("cri") Criteria cri , Model model) { 
 		
 	}
