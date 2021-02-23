@@ -143,7 +143,12 @@
 
 <h3 align="center"><strong> 파일 업로드 </strong></h3>
 
-
+### 1. 파일업로드
+<img width="877" alt="파일업로드1" src="https://user-images.githubusercontent.com/47100164/108860014-26b80000-7631-11eb-83e3-b9ad9123ce37.PNG">
+### 2. 업로드 파일삭제
+<img width="877" alt="파일업로드1" src="https://user-images.githubusercontent.com/47100164/108860014-26b80000-7631-11eb-83e3-b9ad9123ce37.PNG">
+### 3. 업로드 파일(사진) 확대
+<img width="877" alt="파일업로드1" src="https://user-images.githubusercontent.com/47100164/108860014-26b80000-7631-11eb-83e3-b9ad9123ce37.PNG">
 
 
 
