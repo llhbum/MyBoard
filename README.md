@@ -6,8 +6,8 @@
 <h3 align="center"><strong>목차</strong></h3>
 
 > 1. 게시판CRUD 
-  > 1. List
-  > 2. Create
+  >       1. List
+  >       2. Create
   > 3. Read
   > 4. Update / Delete
   > 5. Pagination
