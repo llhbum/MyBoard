@@ -145,10 +145,29 @@
 
 ### 1. 파일업로드
 <img width="877" alt="파일업로드1" src="https://user-images.githubusercontent.com/47100164/108860014-26b80000-7631-11eb-83e3-b9ad9123ce37.PNG">
-### 2. 업로드 파일삭제
-<img width="877" alt="파일업로드1" src="https://user-images.githubusercontent.com/47100164/108860014-26b80000-7631-11eb-83e3-b9ad9123ce37.PNG">
-### 3. 업로드 파일(사진) 확대
-<img width="877" alt="파일업로드1" src="https://user-images.githubusercontent.com/47100164/108860014-26b80000-7631-11eb-83e3-b9ad9123ce37.PNG">
+> 게시글에 등록 시 파일선택을 클릭하여 파일/사진을 등록할 수 있다.
+> 
+> 사진은 썸네일로 표시되고 파일은 미리 지정해 놓은 사진으로 표시된다.
+<br/>
+
+### 2. 업로드파일삭제
+<img width="877" alt="파일업로드1" src="https://user-images.githubusercontent.com/47100164/108860292-68e14180-7631-11eb-8a1a-6b2ac25d6e1a.PNG">
+> 파일이 등록되면 파일 옆에 'X' 표시가 생긴다.
+> 
+> 'X' 표시 클릭시 파일은 삭제된다.
+
+<br/>
+
+### 3-1. 업로드파일(사진)확대
+<img width="877" alt="파일업로드1" src="(https://user-images.githubusercontent.com/47100164/108860554-a6de6580-7631-11eb-89a8-05b13876b0b0.PNG">
+### 3-2. 업로드파일(사진)확대
+<img width="877" alt="파일업로드1" src="https://user-images.githubusercontent.com/47100164/108860672-c5446100-7631-11eb-8ef2-fb9b77385a6e.PNG">
+> 파일/사진이 등록된 게시글에서 사진을 클릭하면
+> 
+> 사진이 확대되어서 보여진다.
+> 
+> 확대된 사진을 다시한번 클릭하면 점진적으로 축소된 후 사라진다.
+<br/>
 
 
 
