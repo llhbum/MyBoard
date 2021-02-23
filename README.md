@@ -33,7 +33,7 @@
 > 
 
 <h3 align="center"><strong>ERD</strong></h3>
-<img width="602" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/108849873-020a5b00-7626-11eb-8b6d-35b87912802d.PNG">
+<img width="877" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/108849873-020a5b00-7626-11eb-8b6d-35b87912802d.PNG">
 
 ***
 
@@ -42,7 +42,7 @@
 <h3 align="center"><strong> 게시판CRUD </strong></h3>
 <br/>
 1. List
-<img width="899" alt="list" src="https://user-images.githubusercontent.com/47100164/105016772-63b73280-5a86-11eb-8e1f-ff74cf081826.PNG">
+<img width="877" alt="list" src="https://user-images.githubusercontent.com/47100164/105016772-63b73280-5a86-11eb-8e1f-ff74cf081826.PNG">
 
 > 1. 번호, 제목, 작성자, 등록일, 수정일, 조회수를 보여줌 / 제목 클릭시 board/get?bno='value'로 이동
 > 2. board/register -> 게시물 작성으로 이동
@@ -50,20 +50,20 @@
 > 4. Title, content, writer을 이용해서 게시물 검색
 <br/>
 2. Create
-<img width="899" alt="register" src="https://user-images.githubusercontent.com/47100164/105017655-60707680-5a87-11eb-94a8-50d6651e6c42.PNG">
+<img width="877" alt="register" src="https://user-images.githubusercontent.com/47100164/105017655-60707680-5a87-11eb-94a8-50d6651e6c42.PNG">
 
 > 1. 제목/내용/작성자를 입력하면 게시글 작성
 > 2. 목록으로 이동시 pageNum과 amount값을 get으로 이동 -> 전에 보던 페이지 그대로 이동
 > 3. 게시글 작성중 초기화 버튼으로 초기화
 <br/>
 3. Read
-<img width="899" alt="get" src="https://user-images.githubusercontent.com/47100164/105018143-f5736f80-5a87-11eb-9875-877044266eb5.PNG">
+<img width="877" alt="get" src="https://user-images.githubusercontent.com/47100164/105018143-f5736f80-5a87-11eb-9875-877044266eb5.PNG">
 
 > 1. 목록으로 이동시 pageNum과 amount값을 get으로 이동 -> 전에 보던 페이지 그대로 이동
 > 2. /board/modify && delete ? bno = 'value'로 이동
 <br/>
 4. Update / Delete
-<img width="898" alt="modify_delete" src="https://user-images.githubusercontent.com/47100164/105018612-8d715900-5a88-11eb-895a-0293b5d03d14.PNG">
+<img width="877" alt="modify_delete" src="https://user-images.githubusercontent.com/47100164/105018612-8d715900-5a88-11eb-895a-0293b5d03d14.PNG">
 
 > 1. 수정버튼 클릭시 post방식으로 제목과 내용 전달되어 수정됨
 > 2. 목록으로 이동시 pageNum과 amount값을 get으로 이동 -> 전에 보던 페이지 그대로 이동
@@ -128,10 +128,14 @@
 
 2-1 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제1" src="https://user-images.githubusercontent.com/47100164/108852164-983f8080-7628-11eb-8cc1-990494b920ec.PNG">
+
 <br/>
+
 2-2 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제2" src="https://user-images.githubusercontent.com/47100164/108852765-595dfa80-7629-11eb-9d51-f957c16a93c1.PNG">
+
 <br/>
+
 2-3 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제3" src="https://user-images.githubusercontent.com/47100164/108852954-87dbd580-7629-11eb-9ac2-05dba20e2e25.PNG">
 
