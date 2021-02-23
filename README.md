@@ -32,7 +32,7 @@
 <h3 align="center"><strong>기술 및 Version</strong></h3>
 > 
 
-<strong>ERD</strong></h3>
+<h3 align="center"><strong>ERD</strong></h3>
 <img width="602" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/108849873-020a5b00-7626-11eb-8b6d-35b87912802d.PNG">
 
 ***
@@ -99,12 +99,16 @@
 <h3 align="center"><strong> 게시글 댓글 </strong></h3>
 1-1. 댓글등록1
 <img width="877" alt="댓글등록1" src="https://user-images.githubusercontent.com/47100164/108851559-e902a980-7627-11eb-8af2-7b9995876d9f.PNG">
+<br/>
 1-2. 댓글등록2
 <img width="877" alt="댓글등록2" src="https://user-images.githubusercontent.com/47100164/108851754-1f402900-7628-11eb-95f3-a44aaa2c2d64.PNG">
+<br/>
 1-3. 댓글등록3  
 <img width="877" alt="댓글등록3" src="https://user-images.githubusercontent.com/47100164/108851830-354de980-7628-11eb-9195-04ac2eec5fb5.PNG">
+<br/>
 1-4. 댓글등록4  
 <img width="877" alt="댓글등록4" src="https://user-images.githubusercontent.com/47100164/108851856-3e3ebb00-7628-11eb-8abe-1d677fd09a75.PNG">
+<br/>
 1-5. 댓글등록5  
 <img width="877" alt="댓글등록5" src="https://user-images.githubusercontent.com/47100164/108852164-983f8080-7628-11eb-8cc1-990494b920ec.PNG">
 
@@ -122,10 +126,13 @@
 
 2-1 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제1" src="https://user-images.githubusercontent.com/47100164/108852164-983f8080-7628-11eb-8cc1-990494b920ec.PNG">
+<br/>
 2-2 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제2" src="https://user-images.githubusercontent.com/47100164/108852765-595dfa80-7629-11eb-9d51-f957c16a93c1.PNG">
+<br/>
 2-3 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제3" src="https://user-images.githubusercontent.com/47100164/108852954-87dbd580-7629-11eb-9ac2-05dba20e2e25.PNG">
+<br/>
  
 > 게시글에 등록된 댓글을 클릭한다(2-1)
 > 
@@ -148,8 +155,9 @@
 > 게시글에 등록 시 파일선택을 클릭하여 파일/사진을 등록할 수 있다.
 > 
 > 사진은 썸네일로 표시되고 파일은 미리 지정해 놓은 사진으로 표시된다.
-<br/>
 
+<br/>
+<br/>
 2. 업로드파일삭제
 <img width="877" alt="업로드파일삭제" src="https://user-images.githubusercontent.com/47100164/108860292-68e14180-7631-11eb-8a1a-6b2ac25d6e1a.PNG">
 > 파일이 등록되면 파일 옆에 'X' 표시가 생긴다.
@@ -157,7 +165,7 @@
 > 'X' 표시 클릭시 파일은 삭제된다.
 
 <br/>
-
+<br/>
 3-1. 업로드파일(사진)확대
 <img width="877" alt="업로드파일(사진)확대1" src="https://user-images.githubusercontent.com/47100164/108861292-67fcdf80-7632-11eb-9070-af26b2b83077.PNG">
 3-2. 업로드파일(사진)확대
