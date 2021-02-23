@@ -6,21 +6,21 @@
 <h3 align="center"><strong>목차</strong></h3>
 
 > 1. 게시판CRUD 
-  >       1. List
-  >       2. Create
-  > 3. Read
-  > 4. Update / Delete
-  > 5. Pagination
-  > 6. 검색
-  > 7. 조회수
+>       1. List
+>       2. Create
+>       3. Read
+>       4. Update / Delete
+>       5. Pagination
+>       6. 검색
+>       7. 조회수
 >
 > 2. 게시글 댓글
->    > 1. 
->    > 2. 
+>       1. 
+>       2. 
 >
 > 3. 파일 업로드
->    > 1. 
->    > 2. 
+>       1. 
+>       2. 
 >
 
 
