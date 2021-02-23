@@ -100,9 +100,13 @@
 <img width="877" alt="댓글등록5" src="https://user-images.githubusercontent.com/47100164/108852164-983f8080-7628-11eb-8cc1-990494b920ec.PNG">
 
 > 게시글로 들어간 후 댓글쓰기를 클릭한다(1-1)
+> 
 > 댓글쓰기를 누르면 Modal창이 뜬다(1-2)
+> 
 > Modal창에 Reply와 Replyer를 입력한다.(1-3)
+> 
 > 후 등록버튼을 클릭하면 alert창이 뜨면서 댓글입력성공을 알려준다.(1-4)
+> 
 > 게시글 하단 댓글창에 댓글입력된 것을 확인할 수 있다.(1-5)
  
 <h3 align="center"><strong> 파일 업로드 </strong></h3>
