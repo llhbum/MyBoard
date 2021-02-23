@@ -26,14 +26,14 @@
 
 
 <h3 align="center"><strong>개발목적</strong></h3>
->
+> Spring의 기본을 닦기위해서 1.게시판CRUD 2.댓글 3.파일 업로드에 관한 웹서비스를 만들었다. 
 
 
 <h3 align="center"><strong>기술 및 Version</strong></h3>
->
+> 
 
 <h3 align="center"><strong>ERD</strong></h3>
-<img width="602" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/105502613-f49d4080-5d08-11eb-8177-581195109361.PNG">
+<img width="602" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/108849873-020a5b00-7626-11eb-8b6d-35b87912802d.PNG">
 
 ***
 
