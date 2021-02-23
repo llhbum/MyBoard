@@ -89,13 +89,13 @@
 
 <h3 align="center"><strong> 게시글 댓글 </strong></h3>
 ### 1-1. 댓글등록
-<img width="72" alt="댓글등록1" src="https://user-images.githubusercontent.com/47100164/108851559-e902a980-7627-11eb-8af2-7b9995876d9f.PNG">
+<img width="877" alt="댓글등록1" src="https://user-images.githubusercontent.com/47100164/108851559-e902a980-7627-11eb-8af2-7b9995876d9f.PNG">
 ### 1-2.  
-<img width="72" alt="댓글등록2" src="https://user-images.githubusercontent.com/47100164/108851754-1f402900-7628-11eb-95f3-a44aaa2c2d64.PNG">
+<img width="877" alt="댓글등록2" src="https://user-images.githubusercontent.com/47100164/108851754-1f402900-7628-11eb-95f3-a44aaa2c2d64.PNG">
 ### 1-3.  
-<img width="72" alt="댓글등록3" src="https://user-images.githubusercontent.com/47100164/108851830-354de980-7628-11eb-9195-04ac2eec5fb5.PNG">
+<img width="877" alt="댓글등록3" src="https://user-images.githubusercontent.com/47100164/108851830-354de980-7628-11eb-9195-04ac2eec5fb5.PNG">
 ### 1-4.  
-<img width="72" alt="댓글등록4" src="https://user-images.githubusercontent.com/47100164/108851856-3e3ebb00-7628-11eb-8abe-1d677fd09a75.PNG">
+<img width="877" alt="댓글등록4" src="https://user-images.githubusercontent.com/47100164/108851856-3e3ebb00-7628-11eb-8abe-1d677fd09a75.PNG">
 
 > 
  
