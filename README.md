@@ -109,8 +109,26 @@
 > 
 > 게시글 하단 댓글창에 댓글입력된 것을 확인할 수 있다.(1-5)
  
+
+### 2 댓글수정/삭제
+<img width="877" alt="댓글수정/삭제1" src="https://user-images.githubusercontent.com/47100164/108852164-983f8080-7628-11eb-8cc1-990494b920ec.PNG">
+### 2. 댓글수정/삭제
+<img width="877" alt="댓글수정/삭제2" src="https://user-images.githubusercontent.com/47100164/108852765-595dfa80-7629-11eb-9d51-f957c16a93c1.PNG">
+### 2. 댓글수정/삭제
+<img width="877" alt="댓글수정/삭제3" src="https://user-images.githubusercontent.com/47100164/108852954-87dbd580-7629-11eb-9ac2-05dba20e2e25.PNG">
+ 
+> 게시글에 등록된 댓글을 클릭한다(2-1)
+> 
+> Reply-Modal창에서 수정/삭제을 확인할 수 있다.(2-2)
+> 
+> Reply자체는 수정이 되고 Replyer은 Read-only상태여서 수정불가 / 삭제를 누르면 댓글이 삭제된다(2-3)
+> 
+
+
+
+<br/>
 <h3 align="center"><strong> 파일 업로드 </strong></h3>
->
+
 
 
 
