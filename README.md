@@ -41,7 +41,7 @@
 
 <h3 align="center"><strong> 게시판CRUD </strong></h3>
 
-### 1. List
+** 1. List **
 <img width="899" alt="list" src="https://user-images.githubusercontent.com/47100164/105016772-63b73280-5a86-11eb-8e1f-ff74cf081826.PNG">
 
 > 1. 번호, 제목, 작성자, 등록일, 수정일, 조회수를 보여줌 / 제목 클릭시 board/get?bno='value'로 이동
@@ -49,14 +49,14 @@
 > 3. pagination으로 페이징 처리
 > 4. Title, content, writer을 이용해서 게시물 검색
 <br/>
-### 2. Create
+** 2. Create **
 <img width="899" alt="register" src="https://user-images.githubusercontent.com/47100164/105017655-60707680-5a87-11eb-94a8-50d6651e6c42.PNG">
 
 > 1. 제목/내용/작성자를 입력하면 게시글 작성
 > 2. 목록으로 이동시 pageNum과 amount값을 get으로 이동 -> 전에 보던 페이지 그대로 이동
 > 3. 게시글 작성중 초기화 버튼으로 초기화
 <br/>
-### 3. Read
+** 3. Read **
 <img width="899" alt="get" src="https://user-images.githubusercontent.com/47100164/105018143-f5736f80-5a87-11eb-9875-877044266eb5.PNG">
 
 > 1. 목록으로 이동시 pageNum과 amount값을 get으로 이동 -> 전에 보던 페이지 그대로 이동
