@@ -97,6 +97,8 @@
 
 
 <h3 align="center"><strong> 게시글 댓글 </strong></h3>
+<br/>
+<br/>
 1-1. 댓글등록1
 <img width="877" alt="댓글등록1" src="https://user-images.githubusercontent.com/47100164/108851559-e902a980-7627-11eb-8af2-7b9995876d9f.PNG">
 <br/>
@@ -152,11 +154,8 @@
 
 1. 파일업로드
 <img width="877" alt="파일업로드" src="https://user-images.githubusercontent.com/47100164/108860014-26b80000-7631-11eb-83e3-b9ad9123ce37.PNG">
+
 > 게시글에 등록 시 파일선택을 클릭하여 파일/사진을 등록할 수 있다.
-> 
-> 사진은 썸네일로 표시되고 파일은 미리 지정해 놓은 사진으로 표시된다.
-<br/>
-> 게시글에 등록 시 파일 선택을 클릭하여 파일/사진을 등록할 수 있다.
 > 
 > 사진은 썸네일로 표시되고 파일은 미리 지정해 놓은 사진으로 표시된다.
 
@@ -166,6 +165,7 @@
 <br/>
 2. 업로드파일삭제
 <img width="877" alt="업로드파일삭제" src="https://user-images.githubusercontent.com/47100164/108860292-68e14180-7631-11eb-8a1a-6b2ac25d6e1a.PNG">
+
 > 파일이 등록되면 파일 옆에 'X' 표시가 생긴다.
 > 
 > 'X' 표시 클릭시 파일은 삭제된다.
@@ -176,6 +176,7 @@
 <img width="877" alt="업로드파일(사진)확대1" src="https://user-images.githubusercontent.com/47100164/108861292-67fcdf80-7632-11eb-9070-af26b2b83077.PNG">
 3-2. 업로드파일(사진)확대
 <img width="877" alt="업로드파일(사진)확대2" src="https://user-images.githubusercontent.com/47100164/108860672-c5446100-7631-11eb-8ef2-fb9b77385a6e.PNG">
+
 > 파일/사진이 등록된 게시글에서 사진을 클릭하면
 > 
 > 사진이 확대되어서 보여진다.
