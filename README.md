@@ -126,17 +126,17 @@
 
 <br/>
 
-
+2-1. 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제1" src="https://user-images.githubusercontent.com/47100164/108852164-983f8080-7628-11eb-8cc1-990494b920ec.PNG">
 
 <br/>
 
-
+2-2. 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제2" src="https://user-images.githubusercontent.com/47100164/108852765-595dfa80-7629-11eb-9d51-f957c16a93c1.PNG">
 
 <br/>
 
-
+2-3. 댓글수정/삭제
 <img width="877" alt="댓글수정/삭제3" src="https://user-images.githubusercontent.com/47100164/108852954-87dbd580-7629-11eb-9ac2-05dba20e2e25.PNG">
 
  
