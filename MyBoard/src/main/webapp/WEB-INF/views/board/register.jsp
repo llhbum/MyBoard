@@ -22,7 +22,7 @@
                         <div class="panel-body">
                         
                             <form role="registerForm" action="/board/register" method="POST">
-                            <input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+                            
                             	<div class="form-group">
                                    <label>Title</label>
                                    <input class="form-control" name = "title">
@@ -35,7 +35,7 @@
                                 
                                	<div class="form-group">
                                    <label>Writer</label>
-                                   <input class='form-control' name ='writer' value='<sec:authentication property="principal.username"/>' readonly="readonly">
+                                   <input class='form-control' name ='writer' >
                                 </div>
 									<button type="submit" class="btn btn-default">작성</button>
                             		<button type = "button" class="btn btn-info listbtn">목록</button>
