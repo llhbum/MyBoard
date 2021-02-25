@@ -40,7 +40,7 @@
 
 <h3 align="center"><strong>기술 및 Version</strong></h3>
 
-|  <center>Header1</center> |  <center>Version</center> |
+|  <center>Tool</center> |  <center>Version</center> |
 |:--------|:--------:|
 |**Java** | <center>1.8.0_261 </center> |
 |**Spring** | <center>5.0.7.RELEASE </center> |
