@@ -30,7 +30,12 @@
 
 
 <h3 align="center"><strong>기술 및 Version</strong></h3>
-> 
+| -- | Version |
+|:--------:|:--------:|
+|**Java** | <center> 1.8.0_261 </center> 
+|**Spring** | <center> 5.0.7.RELEASE </center> |
+|**Oracle DB** | <center> 11g </center> |
+|**Apache Tomcat** | <center> 9.0 </center> |
 
 <h3 align="center"><strong>ERD</strong></h3>
 <img width="877" alt="erm캡쳐" src="https://user-images.githubusercontent.com/47100164/108849873-020a5b00-7626-11eb-8b6d-35b87912802d.PNG">
