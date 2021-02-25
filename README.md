@@ -26,7 +26,12 @@
 
 
 <h3 align="center"><strong>개발목적</strong></h3>
-> Spring의 기본을 닦기위해서 1.게시판CRUD 2.댓글 3.파일 업로드에 관한 웹서비스를 만들었다. 
+
+> Spring의 기본을 닦기위해서 
+> 1.게시판CRUD 
+> 2.댓글 
+> 3.파일 
+> 업로드에 관한 웹서비스를 만들었다. 
 
 
 <h3 align="center"><strong>기술 및 Version</strong></h3>
